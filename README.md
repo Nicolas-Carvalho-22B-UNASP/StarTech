@@ -52,11 +52,9 @@
 ### 🖱️ Mouse
 - **Arrastar**: Rotacionar visualização
 - **Scroll**: Zoom in/out
-- **Clique duplo**: Reset da câmera
 
 ### ⌨️ Teclado
 - **← →**: Rotação manual esquerda/direita
-- **↑ ↓**: Zoom in/out
 - **Espaço**: Pausar/retomar rotação
 - **R**: Reset da visualização
 

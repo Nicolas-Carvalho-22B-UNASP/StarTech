@@ -70,11 +70,11 @@ html {
 }
 
 .logo .texto-logo-star {
-    color: #8b5cf6;
+    color: #ffffff;
 }
 
 .logo .texto-logo-tech {
-    color: #ffffff;
+    color: #8b5cf6;
 }
 
 .menu-navegacao {
@@ -422,6 +422,9 @@ section h2::after {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .botao-explorar:hover {
@@ -785,11 +788,11 @@ section h2::after {
 }
 
 .logo-rodape .texto-logo-star {
-    color: #8b5cf6;
+    color: #ffffff;
 }
 
 .logo-rodape .texto-logo-tech {
-    color: #ffffff;
+    color: #8b5cf6;
 }
 
 .links-rodape {

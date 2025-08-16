@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeta Terra | StarTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/planetas.css">
+    <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+    <nav class="navegacao">
+        <div class="container-navegacao">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            <ul class="menu-navegacao">
+                <li><a href="../index.html#conteudos">Conteúdos</a></li>
+                <li><a href="../index.html#explorar">Explorar</a></li>
+                <li><a href="../index.html#descobertas">Descobertas</a></li>
+                <li><a href="../index.html#jogos">Jogos</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="secao-planeta">
+        <div class="container">
+            <div class="navegacao-planeta">
+                <a href="../index.html#explorar" class="btn-voltar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Voltar para Explorar
+                </a>
+                
+                <div class="setas-navegacao">
+                    <button class="seta-planeta" id="planetaAnterior" title="Planeta anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <span class="planeta-atual">Terra</span>
+                    <button class="seta-planeta" id="proximoPlaneta" title="Próximo planeta">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="titulo-planeta">
+                <h1>Planeta <span class="texto-destaque">Terra</span></h1>
+                <p class="subtitulo-planeta">Nosso planeta azul, o único conhecido a abrigar vida.</p>
+            </div>
+
+            <div class="conteudo-planeta">
+                <div class="visualizador-3d">
+                    <canvas id="canvas3d"></canvas>
+                    <div class="controles-planeta">
+                        <button id="btnRotateLeft" class="btn-controle" title="Rotacionar para esquerda">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.51 15A9 9 0 1 0 9 4L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button id="btnPausar" class="btn-controle" title="Pausar rotação">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
+                                <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        <button id="btnRotateRight" class="btn-controle" title="Rotacionar para direita">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20.49 15A9 9 0 1 1 15 4L23 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button id="btnZoomIn" class="btn-controle" title="Zoom In">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="8" y1="11" x2="14" y2="11" stroke="currentColor" stroke-width="2"/>
+                                <line x1="11" y1="8" x2="11" y2="14" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <button id="btnZoomOut" class="btn-controle" title="Zoom Out">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="8" y1="11" x2="14" y2="11" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </button>
+                        <button id="btnHome" class="btn-controle" title="Posição inicial">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="informacoes-planeta">
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Dimensões</h3>
+                        <div class="dados-info">
+                            <p><strong>Diâmetro:</strong> 12.742 km</p>
+                            <p><strong>Massa:</strong> 5,97 × 10²⁴ kg</p>
+                            <p><strong>Volume:</strong> 1,08 × 10¹² km³</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Física</h3>
+                        <div class="dados-info">
+                            <p><strong>Gravidade:</strong> 9,8 m/s²</p>
+                            <p><strong>Temp. média:</strong> 15°C</p>
+                            <p><strong>Pressão:</strong> 1 atm</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Órbita</h3>
+                        <div class="dados-info">
+                            <p><strong>Dist. do Sol:</strong> 149,6 milhões km</p>
+                            <p><strong>Período orbital:</strong> 365,25 dias</p>
+                            <p><strong>Vel. orbital:</strong> 29,78 km/s</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Rotação</h3>
+                        <div class="dados-info">
+                            <p><strong>Período:</strong> 23,9 horas</p>
+                            <p><strong>Inclinação axial:</strong> 23,4°</p>
+                            <p><strong>Vel. rotação:</strong> 1.674 km/h</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.5 19H9A7 7 0 1 1 9 5H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Atmosfera</h3>
+                        <div class="dados-info">
+                            <p><strong>Composição:</strong> 78% N₂, 21% O₂</p>
+                            <p><strong>Camadas:</strong> 5 principais</p>
+                            <p><strong>Altitude:</strong> -100 km</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Curiosidades</h3>
+                        <div class="dados-info">
+                            <p><strong>70%</strong> coberta por água</p>
+                            <p><strong>Campo magnético</strong> protetor</p>
+                            <p><strong>Único planeta</strong> com vida</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-sobre-planeta">
+        <div class="container">
+            <h2>Sobre <span class="texto-destaque">Terra</span></h2>
+            <div class="conteudo-sobre">
+                <p>A Terra é o terceiro planeta do Sistema Solar e o único conhecido a abrigar vida. Formada há aproximadamente 4,5 bilhões de anos, nossa casa cósmica é um mundo dinâmico e complexo, com uma biosfera rica e diversificada.</p>
+                
+                <p>O que torna a Terra especial é sua localização na "zona habitável" do Sol, onde as temperaturas permitem a existência de água líquida na superfície. Cerca de 71% da superfície terrestre é coberta por oceanos, que desempenham um papel crucial na regulação do clima e no suporte à vida.</p>
+                
+                <p>A atmosfera terrestre, composta principalmente por nitrogênio e oxigênio, protege a vida dos raios cósmicos nocivos e mantém temperaturas estáveis através do efeito estufa natural. O campo magnético da Terra, gerado pelo núcleo metálico em movimento, também oferece proteção contra o vento solar.</p>
+                
+                <p>A Terra possui uma lua relativamente grande, que influencia as marés oceânicas e ajuda a estabilizar a inclinação axial do planeta, contribuindo para um clima mais estável ao longo do tempo geológico.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <a href="../index.html" class="logo-rodape">
+                    <img src="../images/logo-startech.svg" alt="StarTech">
+                    <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+                </a>
+                <nav class="links-rodape">
+                    <a href="../index.html#conteudos">Conteúdos</a>
+                    <a href="../index.html#explorar">Explorar</a>
+                    <a href="../index.html#descobertas">Descobertas</a>
+                    <a href="../index.html#jogos">Jogos</a>
+                    <a href="../index.html#faq">FAQ</a>
+                    <a href="../index.html#contato">Contato</a>
+                </nav>
+                <div class="redes-sociais">
+                    <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
+                    <a href="#" class="rede-social">
+                        <img src="../images/icon-instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="direitos-autorais">
+                <p>&copy; 2025 StarTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="botao-topo" id="botaoTopo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="../js/navegacao-planetas.js"></script>
+    <script src="../js/terra.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

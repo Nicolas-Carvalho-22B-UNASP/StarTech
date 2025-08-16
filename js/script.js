@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function criarCampoEstrelado() {
     const campoEstrelado = document.getElementById('campoEstrelado');
+    if (!campoEstrelado) return; // Não existe na página do planeta
     const numeroEstrelas = 150;
 
     for (let i = 0; i < numeroEstrelas; i++) {
