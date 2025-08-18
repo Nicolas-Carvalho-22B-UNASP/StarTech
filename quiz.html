@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz dos Planetas | StarTech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+    
+    <div class="quiz-intro" id="quizIntro">
+        <div class="quiz-header">
+            <button class="voltar-inicio" onclick="window.location.href='index.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar ao Início
+            </button>
+            
+            <div class="quiz-titulo">
+                <h1>Quiz dos <span class="texto-destaque">Planetas</span></h1>
+                <p>Teste seus conhecimentos sobre o Sistema Solar</p>
+            </div>
+
+            <div class="quiz-stats">
+                <div class="stat">
+                    <div class="stat-numero">10</div>
+                    <div class="stat-label">PERGUNTAS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-numero">8</div>
+                    <div class="stat-label">PLANETAS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-numero">3</div>
+                    <div class="stat-label">MINUTOS</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-intro-card">
+            <h2>Pronto para o <span class="texto-destaque">Desafio</span>?</h2>
+            <p>Este quiz contém 10 perguntas sobre os planetas do Sistema Solar, baseadas nas informações disponíveis no StarTech. Você terá múltiplas escolhas para cada pergunta.</p>
+            
+            <div class="regras-quiz">
+                <h3>Regras do Quiz</h3>
+                <ul>
+                    <li>10 perguntas aleatórias sobre os 8 planetas</li>
+                    <li>Múltiplas escolhas com 4 alternativas cada</li>
+                    <li>Sem limite de tempo - vá no seu ritmo</li>
+                    <li>Pontuação baseada em acertos</li>
+                    <li>Resultado detalhado ao final</li>
+                </ul>
+            </div>
+
+            <button class="botao-iniciar-quiz" onclick="iniciarQuiz()">
+                INICIAR QUIZ
+            </button>
+        </div>
+    </div>
+
+    
+    <div class="quiz-game" id="quizGame" style="display: none;">
+        <div class="quiz-header">
+            <button class="voltar-inicio" onclick="voltarParaIntro()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar ao Início
+            </button>
+            
+            <div class="quiz-titulo">
+                <h1>Quiz dos <span class="texto-destaque">Planetas</span></h1>
+                <p>Teste seus conhecimentos sobre o Sistema Solar</p>
+            </div>
+
+            <div class="quiz-stats">
+                <div class="stat">
+                    <div class="stat-numero">10</div>
+                    <div class="stat-label">PERGUNTAS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-numero">8</div>
+                    <div class="stat-label">PLANETAS</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-numero">3</div>
+                    <div class="stat-label">MINUTOS</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="progressText"><span class="numero">1</span> de <span class="numero">10</span></span>
+            </div>
+        </div>
+
+        <div class="quiz-content">
+            <div class="pergunta-container">
+                <div class="planeta-tag" id="planetaTag">SATURNO</div>
+                <h2 id="perguntaTexto">Qual é a velocidade máxima dos ventos em Saturno?</h2>
+                
+                <div class="alternativas" id="alternativas">
+                    <button class="alternativa" onclick="selecionarResposta(0)">1.200 km/h</button>
+                    <button class="alternativa" onclick="selecionarResposta(1)">1.800 km/h</button>
+                    <button class="alternativa" onclick="selecionarResposta(2)">2.100 km/h</button>
+                    <button class="alternativa" onclick="selecionarResposta(3)">900 km/h</button>
+                </div>
+
+                <button class="botao-proxima" id="botaoProxima" onclick="proximaPergunta()" disabled>
+                    PRÓXIMA PERGUNTA
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="quiz-resultado" id="quizResultado" style="display: none;">
+        <div class="quiz-header">
+            <button class="voltar-inicio" onclick="window.location.href='index.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar ao Início
+            </button>
+            
+            <div class="quiz-titulo">
+                <h1>Quiz dos <span class="texto-destaque">Planetas</span></h1>
+                <p>Resultado Final</p>
+            </div>
+        </div>
+
+        <div class="resultado-card">
+            <h2>Parabéns!</h2>
+            <div class="pontuacao">
+                <div class="pontuacao-numero" id="pontuacaoFinal">8/10</div>
+                <div class="pontuacao-texto">Você acertou <span id="acertos">8</span> de 10 perguntas!</div>
+            </div>
+            
+            <div class="resultado-descricao" id="resultadoDescricao">
+                Excelente! Você tem um ótimo conhecimento sobre o Sistema Solar!
+            </div>
+
+            <div class="botoes-resultado">
+                <button class="botao-reiniciar" onclick="reiniciarQuiz()">JOGAR NOVAMENTE</button>
+                <button class="botao-voltar" onclick="window.location.href='index.html'">VOLTAR AO INÍCIO</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <a href="index.html" class="logo-rodape">
+                    <img src="images/logo-startech.svg" alt="StarTech">
+                    <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+                </a>
+                <nav class="links-rodape">
+                    <a href="index.html#conteudos">Conteúdos</a>
+                    <a href="index.html#explorar">Explorar</a>
+                    <a href="index.html#descobertas">Descobertas</a>
+                    <a href="index.html#quiz">Quiz</a>
+                    <a href="index.html#faq">FAQ</a>
+                    <a href="index.html#contato">Contato</a>
+                </nav>
+                <div class="redes-sociais">
+                    <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
+                    <a href="#" class="rede-social">
+                        <img src="images/icon-instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="direitos-autorais">
+                <p>&copy; 2025 StarTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>

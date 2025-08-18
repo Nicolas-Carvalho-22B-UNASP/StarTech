@@ -538,14 +538,14 @@ section h2::after {
     display: none;
 }
 
-.grade-jogos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+.grade-quiz {
+    display: flex;
+    justify-content: center;
     gap: 40px;
     margin-bottom: 80px;
 }
 
-.card-jogo {
+.card-quiz {
     background: rgba(139, 92, 246, 0.15);
     border: 2px solid #4c1d95;
     border-radius: 20px;
@@ -553,21 +553,22 @@ section h2::after {
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
+    max-width: 400px;
 }
 
-.card-jogo:hover {
+.card-quiz:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
 }
 
-.icone-jogo {
+.icone-quiz {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
     color: #a855f7;
 }
 
-.icone-quiz, .icone-memoria {
+.icone-quiz svg {
     width: 100%;
     height: 100%;
 }
@@ -578,13 +579,13 @@ section h2::after {
     text-anchor: middle;
 }
 
-.card-jogo h3 {
+.card-quiz h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #ffffff;
 }
 
-.card-jogo p {
+.card-quiz p {
     color: #b0b0b0;
     line-height: 1.6;
     margin-bottom: 25px;
@@ -973,7 +974,7 @@ section h2::after {
 
     .grade-conteudos,
     .grade-explorar,
-    .grade-jogos {
+    .grade-quiz {
         grid-template-columns: 1fr;
     }
 
@@ -1036,11 +1037,12 @@ section h2::after {
         padding: 25px;
     }
 
-    .grade-jogos {
-        grid-template-columns: 1fr;
+    .grade-quiz {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .card-jogo {
+    .card-quiz {
         min-width: auto;
     }
 
@@ -1064,7 +1066,7 @@ section h2::after {
 
 .card-conteudo,
 .card-explorar,
-.card-jogo {
+.card-quiz {
     will-change: transform;
 }
 

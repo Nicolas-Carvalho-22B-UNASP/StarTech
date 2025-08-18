@@ -1,6 +1,3 @@
-/* CSS específico para páginas dos planetas */
-
-/* Seção principal do planeta */
 .secao-planeta {
     background: #0d0a14;
     min-height: 100vh;
@@ -26,14 +23,14 @@
     pointer-events: none;
 }
 
-/* Campo estrelado removido do fundo geral */
+
 
 @keyframes estrelas {
     from { transform: translateY(0px); }
     to { transform: translateY(-100px); }
 }
 
-/* Navegação do planeta */
+
 .navegacao-planeta {
     display: flex;
     justify-content: space-between;
@@ -103,7 +100,7 @@
     border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
-/* Título do planeta */
+
 .titulo-planeta {
     text-align: center;
     margin-bottom: 3rem;
@@ -137,7 +134,7 @@
     margin: 0 auto;
 }
 
-/* Layout principal */
+
 .conteudo-planeta {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -146,17 +143,17 @@
     margin-top: 2rem;
 }
 
-/* Visualizador 3D */
+
 .visualizador-3d {
     position: relative;
-    background: transparent; /* Deixar Three.js controlar */
+    background: transparent; 
     border-radius: 16px;
     padding: 2rem;
     border: 1px solid rgba(139, 92, 246, 0.2);
     overflow: hidden;
 }
 
-/* Removido - Three.js gerencia o fundo e estrelas */
+
 
 #canvas3d {
     position: relative;
@@ -174,7 +171,7 @@
     cursor: grabbing;
 }
 
-/* Controles do planeta */
+
 .controles-planeta {
     display: flex;
     justify-content: center;
@@ -210,21 +207,21 @@
     transform: translateY(0);
 }
 
-/* Grid de informações */
+
 .informacoes-planeta {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-/* Cards de informação */
+
 .card-info {
     background: rgba(139, 92, 246, 0.1);
     border: 1px solid rgba(139, 92, 246, 0.3);
     border-radius: 15px;
     padding: 1.1rem;
     transition: all 0.3s ease;
-    min-height: 120px; /* Altura mínima, mas pode crescer conforme conteúdo */
+    min-height: 120px; 
     display: flex;
     flex-direction: column;
 }
@@ -271,7 +268,7 @@
     color: #ffffff;
 }
 
-/* Seção sobre o planeta */
+
 .secao-sobre-planeta {
     background: #0d0a14;
     padding: 4rem 0;
@@ -341,9 +338,9 @@
     margin-bottom: 0;
 }
 
-/* Footer padrão do site será usado */
 
-/* Responsividade */
+
+
 @media (max-width: 1024px) {
     .conteudo-planeta {
         grid-template-columns: 1fr;
@@ -409,7 +406,7 @@
     
     .card-info {
         padding: 1rem;
-        min-height: 100px; /* Altura mínima para mobile */
+        min-height: 100px; 
     }
     
     .conteudo-sobre {

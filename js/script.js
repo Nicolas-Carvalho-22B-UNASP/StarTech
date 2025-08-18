@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function criarCampoEstrelado() {
     const campoEstrelado = document.getElementById('campoEstrelado');
-    if (!campoEstrelado) return; // Não existe na página do planeta
+    if (!campoEstrelado) return;
     const numeroEstrelas = 150;
 
     for (let i = 0; i < numeroEstrelas; i++) {
@@ -263,7 +263,7 @@ if (!document.getElementById('estilo-notificacoes')) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-    const cards = document.querySelectorAll('.card-conteudo, .card-explorar, .card-jogo');
+    const cards = document.querySelectorAll('.card-conteudo, .card-explorar, .card-quiz');
     cards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(estilo);
     }
 
-    const elementosParaAnimacao = document.querySelectorAll('.card-conteudo, .card-explorar, .card-jogo, .evento-descoberta');
+    const elementosParaAnimacao = document.querySelectorAll('.card-conteudo, .card-explorar, .card-quiz, .evento-descoberta');
     elementosParaAnimacao.forEach(elemento => {
         elemento.classList.add('animacao-entrada');
         observer.observe(elemento);

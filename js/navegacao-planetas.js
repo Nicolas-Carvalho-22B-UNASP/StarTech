@@ -1,8 +1,3 @@
-/**
- * Sistema de Navegação entre Planetas - StarTech
- */
-
-// Ordem dos planetas no Sistema Solar
 const PLANETAS = [
     { nome: 'mercurio', titulo: 'Mercúrio', arquivo: 'mercurio.html' },
     { nome: 'venus', titulo: 'Vênus', arquivo: 'venus.html' },
@@ -14,13 +9,11 @@ const PLANETAS = [
     { nome: 'netuno', titulo: 'Netuno', arquivo: 'netuno.html' }
 ];
 
-/**
- * Inicializar navegação entre planetas
- */
+
 function initNavegacaoPlanetas() {
     console.log('🧭 Iniciando navegação entre planetas...');
     
-    // Detectar planeta atual pela URL ou título da página
+
     const planetaAtual = detectarPlanetaAtual();
     
     if (planetaAtual !== -1) {
@@ -30,11 +23,9 @@ function initNavegacaoPlanetas() {
     console.log('✅ Navegação entre planetas configurada');
 }
 
-/**
- * Detectar qual planeta estamos visualizando
- */
+
 function detectarPlanetaAtual() {
-    // Tentar detectar pelo nome do arquivo na URL
+
     const url = window.location.pathname;
     
     for (let i = 0; i < PLANETAS.length; i++) {
@@ -44,7 +35,7 @@ function detectarPlanetaAtual() {
         }
     }
     
-    // Se não conseguiu detectar pela URL, tentar pelo título da página
+
     const titulo = document.title;
     for (let i = 0; i < PLANETAS.length; i++) {
         if (titulo.includes(PLANETAS[i].titulo)) {
@@ -57,9 +48,7 @@ function detectarPlanetaAtual() {
     return -1;
 }
 
-/**
- * Configurar botões de navegação (com loop contínuo)
- */
+
 function configurarBotoes(indiceAtual) {
     const btnAnterior = document.getElementById('planetaAnterior');
     const btnProximo = document.getElementById('proximoPlaneta');
@@ -69,37 +58,27 @@ function configurarBotoes(indiceAtual) {
         return;
     }
     
-    // Calcular índices com loop
+
     const indiceAnterior = indiceAtual === 0 ? PLANETAS.length - 1 : indiceAtual - 1;
     const indiceProximo = indiceAtual === PLANETAS.length - 1 ? 0 : indiceAtual + 1;
     
-    // Configurar botão anterior (sempre habilitado)
+
     btnAnterior.disabled = false;
     btnAnterior.addEventListener('click', () => navegarPara(indiceAnterior));
     btnAnterior.title = `Ir para ${PLANETAS[indiceAnterior].titulo}`;
     
-    // Configurar botão próximo (sempre habilitado)
+
     btnProximo.disabled = false;
     btnProximo.addEventListener('click', () => navegarPara(indiceProximo));
     btnProximo.title = `Ir para ${PLANETAS[indiceProximo].titulo}`;
     
-    // Adicionar navegação por teclado (com loop)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            navegarPara(indiceAnterior);
-        } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            navegarPara(indiceProximo);
-        }
-    });
+
+    // Navegação por teclado removida - setas são usadas apenas para rotação do planeta
     
     console.log(`✓ Botões configurados para ${PLANETAS[indiceAtual].titulo} (navegação em loop)`);
 }
 
-/**
- * Navegar para um planeta específico
- */
+
 function navegarPara(indice) {
     if (indice < 0 || indice >= PLANETAS.length) {
         console.error('❌ Índice de planeta inválido:', indice);
@@ -111,7 +90,7 @@ function navegarPara(indice) {
     
     console.log(`🚀 Navegando para ${planeta.titulo}...`);
     
-    // Adicionar efeito de transição suave (opcional)
+
     document.body.style.opacity = '0.8';
     
     setTimeout(() => {
@@ -119,9 +98,7 @@ function navegarPara(indice) {
     }, 150);
 }
 
-/**
- * Obter informações do planeta atual
- */
+
 function getPlanetaInfo(indice) {
     if (indice >= 0 && indice < PLANETAS.length) {
         return PLANETAS[indice];
@@ -129,9 +106,9 @@ function getPlanetaInfo(indice) {
     return null;
 }
 
-// Inicializar quando a página carregar (rápido)
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar imediatamente
+
     initNavegacaoPlanetas();
 });
 

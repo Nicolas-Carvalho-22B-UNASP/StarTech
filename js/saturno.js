@@ -1,21 +1,17 @@
-/**
- * Sistema 3D para o planeta Saturno - Versão Realista com Anéis
- */
-
 let scene, camera, renderer, planet, rings, starField, controls;
 let isRotating = true;
 let rotationDirection = 1;
 
-// Aguardar carregamento completo (inicialização rápida)
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar imediatamente após DOM carregar
+
     initSaturno();
 });
 
 function initSaturno() {
     console.log('🚀 Iniciando Saturno 3D Realista...');
     
-    // Verificações básicas
+
     if (typeof THREE === 'undefined') {
         console.error('❌ Three.js não carregado');
         showError('Three.js não carregado');
@@ -56,19 +52,19 @@ function initSaturno() {
 
 function setupScene(canvas) {
     scene = new THREE.Scene();
-    // Fundo espacial escuro e realista
+
     scene.background = new THREE.Color(0x000005);
     console.log('✓ Cena criada');
 }
 
 function setupCamera(canvas) {
-    // Usar as dimensões reais do canvas após CSS aplicado
+
     const rect = canvas.getBoundingClientRect();
     const aspect = rect.width / rect.height;
     
-    // Campo de visão menor para aspecto mais realista
+
     camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
-    camera.position.set(0, 0, 6); // Padrão igual ao Mercúrio
+    camera.position.set(0, 0, 6);
     console.log('✓ Câmera criada');
 }
 
@@ -79,33 +75,33 @@ function setupRenderer(canvas) {
         alpha: false
     });
     
-    // Usar as dimensões reais do canvas definidas pelo CSS
+
     const rect = canvas.getBoundingClientRect();
     renderer.setSize(rect.width, rect.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     
-    // Configurações para gráficos mais realistas
+
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Sombras suaves
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.LinearToneMapping;
-    renderer.toneMappingExposure = 0.6; // Reduzido para não estourar
+    renderer.toneMappingExposure = 0.6;
     
     console.log('✓ Renderer realista criado');
 }
 
 function setupRealisticLights() {
-    // Luz ambiente muito sutil (espaço é escuro)
+
     const ambientLight = new THREE.AmbientLight(0x202040, 0.1);
     scene.add(ambientLight);
     
-    // Luz principal do Sol - intensidade reduzida para não estourar
+
     const sunLight = new THREE.DirectionalLight(0xfff5e6, 1.2);
     sunLight.position.set(8, 3, 4);
     sunLight.castShadow = true;
     
-    // Configurações de sombra limpa e suave
-    sunLight.shadow.mapSize.width = 2048;  // Resolução equilibrada
+
+    sunLight.shadow.mapSize.width = 2048;
     sunLight.shadow.mapSize.height = 2048;
     sunLight.shadow.camera.near = 0.5;
     sunLight.shadow.camera.far = 50;
@@ -113,10 +109,10 @@ function setupRealisticLights() {
     sunLight.shadow.camera.right = 10;
     sunLight.shadow.camera.top = 10;
     sunLight.shadow.camera.bottom = -10;
-    sunLight.shadow.bias = -0.0001;        // Bias conservador
+    sunLight.shadow.bias = -0.0001;
     scene.add(sunLight);
     
-    // Luz de preenchimento muito sutil
+
     const fillLight = new THREE.DirectionalLight(0x4a5568, 0.15);
     fillLight.position.set(-5, -2, -3);
     scene.add(fillLight);
@@ -125,47 +121,60 @@ function setupRealisticLights() {
 }
 
 function createRealisticPlanet() {
-    // Geometria padrão (mesma do Mercúrio)
-    const geometry = new THREE.SphereGeometry(1.6, 64, 64); // Padrão igual aos outros
+
+    const geometry = new THREE.SphereGeometry(1.6, 64, 64);
     
-    // Material realista inicial - cor dourada/bege como Saturno real
+
     const material = new THREE.MeshLambertMaterial({
-        color: 0xfad5a5, // Cor dourada/bege característica de Saturno
-        emissive: 0x000000, // Sem emissão própria
-        transparent: false
+        color: 0xfad5a5,
+        emissive: 0x000000,
+        transparent: true,
+        opacity: 0
     });
     
     planet = new THREE.Mesh(geometry, material);
     planet.castShadow = true;
     planet.receiveShadow = true;
     
-    // Inclinação axial padrão (mesmo do Mercúrio)
+
     planet.rotation.z = 0.001;
     
     scene.add(planet);
-    console.log('✓ Planeta realista criado');
+    console.log('✓ Planeta realista criado (aguardando textura)');
     
-    // Carregar textura com configurações realistas
+
     const loader = new THREE.TextureLoader();
     loader.load(
         '../images/saturno/saturn_texture.jpg',
         function(texture) {
-            // Configurações da textura para realismo
+
             texture.wrapS = THREE.RepeatWrapping;
             texture.wrapT = THREE.RepeatWrapping;
             texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
             
-            // Criar novo material com textura e cor natural
+
             const newMaterial = new THREE.MeshLambertMaterial({
                 map: texture,
-                color: 0xffffff, // Branco para não alterar cores da textura
+                color: 0xffffff,
                 emissive: 0x000000,
                 transparent: false
             });
             
             planet.material = newMaterial;
             planet.material.needsUpdate = true;
-            console.log('✓ Textura realista aplicada');
+            // Animação suave de aparição
+            const fadeIn = () => {
+                if (planet.material.opacity < 1) {
+                    planet.material.opacity += 0.05;
+                    requestAnimationFrame(fadeIn);
+                } else {
+                    planet.material.transparent = false;
+                    planet.material.needsUpdate = true;
+                }
+            };
+            fadeIn();
+            
+            console.log('✓ Textura realista aplicada com transição suave');
         },
         function(progress) {
             console.log('⏳ Carregando textura...', Math.round((progress.loaded / progress.total) * 100) + '%');
@@ -177,13 +186,13 @@ function createRealisticPlanet() {
 }
 
 function createSaturnRings() {
-    // Criar múltiplas camadas de anéis para efeito mais realista
+
     const ringGroup = new THREE.Group();
     
-    // Anel principal (mais denso)
-    const mainRingGeometry = new THREE.RingGeometry(2.1, 3.2, 128); // Mais segmentos para suavidade
+
+    const mainRingGeometry = new THREE.RingGeometry(2.1, 3.2, 128);
     const mainRingMaterial = new THREE.MeshLambertMaterial({
-        color: 0xd4a574, // Cor dourada mais realista
+        color: 0xd4a574,
         transparent: true,
         opacity: 0.75,
         side: THREE.DoubleSide
@@ -192,10 +201,10 @@ function createSaturnRings() {
     const mainRing = new THREE.Mesh(mainRingGeometry, mainRingMaterial);
     ringGroup.add(mainRing);
     
-    // Anel externo (mais tênue)
+
     const outerRingGeometry = new THREE.RingGeometry(3.3, 3.8, 128);
     const outerRingMaterial = new THREE.MeshLambertMaterial({
-        color: 0xc8b39e, // Cor mais clara
+        color: 0xc8b39e,
         transparent: true,
         opacity: 0.45,
         side: THREE.DoubleSide
@@ -204,15 +213,15 @@ function createSaturnRings() {
     const outerRing = new THREE.Mesh(outerRingGeometry, outerRingMaterial);
     ringGroup.add(outerRing);
     
-    // Orientação dos anéis
-    ringGroup.rotation.x = Math.PI / 2; // Horizontal
-    ringGroup.rotation.z = 0.001; // Inclinação mínima
+
+    ringGroup.rotation.x = Math.PI / 2;
+    ringGroup.rotation.z = 0.001;
     
-    rings = ringGroup; // Referenciar o grupo
+    rings = ringGroup;
     scene.add(rings);
     console.log('✓ Anéis melhorados de Saturno criados');
     
-    // Tentar carregar textura dos anéis
+
     const loader = new THREE.TextureLoader();
     loader.load(
         '../images/saturno/saturn_rings.jpg',
@@ -248,9 +257,9 @@ function createBeautifulStars() {
     const starsColors = [];
     const starsSizes = [];
     
-    // Criar 1500 estrelas com variações realistas
+
     for (let i = 0; i < 1500; i++) {
-        // Posições em esfera ao redor
+
         const radius = 150 + Math.random() * 200;
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.random() * Math.PI;
@@ -261,20 +270,20 @@ function createBeautifulStars() {
         
         starsVertices.push(x, y, z);
         
-        // Cores variadas para as estrelas
+
         const starType = Math.random();
         if (starType < 0.7) {
-            // Estrelas brancas/azuladas (maioria)
+
             starsColors.push(1, 1, 1);
         } else if (starType < 0.9) {
-            // Estrelas amareladas
+
             starsColors.push(1, 0.9, 0.7);
         } else {
-            // Estrelas avermelhadas
+
             starsColors.push(1, 0.7, 0.5);
         }
         
-        // Tamanhos variados
+
         starsSizes.push(Math.random() * 3 + 1);
     }
     
@@ -282,7 +291,7 @@ function createBeautifulStars() {
     starsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starsColors, 3));
     starsGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starsSizes, 1));
     
-    // Material das estrelas com shader personalizado
+
     const starsMaterial = new THREE.PointsMaterial({
         size: 2,
         sizeAttenuation: false,
@@ -300,19 +309,19 @@ function createBeautifulStars() {
 function setupSmoothControls() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     
-    // Configurações para controles mais suaves
+
     controls.enableDamping = true;
-    controls.dampingFactor = 0.08; // Mais suave
-    controls.rotateSpeed = 0.3; // Velocidade de rotação reduzida
-    controls.zoomSpeed = 0.5; // Velocidade de zoom reduzida
-    controls.panSpeed = 0.5; // Velocidade de pan reduzida
+    controls.dampingFactor = 0.08;
+    controls.rotateSpeed = 0.3;
+    controls.zoomSpeed = 0.5;
+    controls.panSpeed = 0.5;
     
-    // Limites padrão (mesmo do Mercúrio)
+
     controls.minDistance = 2.5;
     controls.maxDistance = 12;
-    controls.enablePan = false; // Desabilitar pan
+    controls.enablePan = false;
     
-    // Limites de ângulo para manter foco no planeta
+
     controls.maxPolarAngle = Math.PI;
     controls.minPolarAngle = 0;
     
@@ -320,10 +329,10 @@ function setupSmoothControls() {
 }
 
 function setupEvents() {
-    // Redimensionamento
+
     window.addEventListener('resize', handleResize);
     
-    // Botões
+
     const btnPausar = document.getElementById('btnPausar');
     if (btnPausar) btnPausar.addEventListener('click', toggleRotation);
     
@@ -342,7 +351,7 @@ function setupEvents() {
     const btnHome = document.getElementById('btnHome');
     if (btnHome) btnHome.addEventListener('click', resetView);
     
-    // Teclado
+
     document.addEventListener('keydown', (e) => {
         switch(e.code) {
             case 'Space':
@@ -383,14 +392,14 @@ function zoom(delta) {
     camera.getWorldDirection(direction);
     camera.position.addScaledVector(direction, delta);
     
-    // Limitar zoom padrão (mesmo do Mercúrio)
+
     const distance = camera.position.length();
     if (distance < 2.5) camera.position.normalize().multiplyScalar(2.5);
     if (distance > 12) camera.position.normalize().multiplyScalar(12);
 }
 
 function resetView() {
-    camera.position.set(0, 0, 6); // Padrão igual ao Mercúrio
+    camera.position.set(0, 0, 6);
     camera.lookAt(0, 0, 0);
     if (planet) planet.rotation.set(0, 0, 0.001);
     if (rings) {
@@ -438,27 +447,27 @@ function handleResize() {
 function animate() {
     requestAnimationFrame(animate);
     
-    // Rotação padrão do planeta (mesmo do Mercúrio)
+
     if (isRotating && planet) {
-        // Velocidade padrão igual ao Mercúrio
-        planet.rotation.y += 0.002 * rotationDirection; // Mesma velocidade
+
+        planet.rotation.y += 0.002 * rotationDirection;
     }
     
-    // Os anéis giram devagar no próprio eixo (muito sutil)
+
     if (isRotating && rings) {
-        rings.rotation.z += 0.0003 * rotationDirection; // Rotação muito devagar no próprio eixo
+        rings.rotation.z += 0.0003 * rotationDirection;
     }
     
-    // Rotação muito sutil das estrelas para efeito dinâmico
+
     if (starField) {
         starField.rotation.y += 0.0001;
         starField.rotation.x += 0.00005;
     }
     
-    // Atualizar controles suaves
+
     controls.update();
     
-    // Renderizar
+
     renderer.render(scene, camera);
 }
 
