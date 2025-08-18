@@ -128,8 +128,7 @@ function createRealisticPlanet() {
     const material = new THREE.MeshLambertMaterial({
         color: 0xfad5a5,
         emissive: 0x000000,
-        transparent: true,
-        opacity: 0
+        transparent: false
     });
     
     planet = new THREE.Mesh(geometry, material);
@@ -140,7 +139,7 @@ function createRealisticPlanet() {
     planet.rotation.z = 0.001;
     
     scene.add(planet);
-    console.log('✓ Planeta realista criado (aguardando textura)');
+    console.log('✓ Planeta realista criado');
     
 
     const loader = new THREE.TextureLoader();
@@ -162,19 +161,7 @@ function createRealisticPlanet() {
             
             planet.material = newMaterial;
             planet.material.needsUpdate = true;
-            // Animação suave de aparição
-            const fadeIn = () => {
-                if (planet.material.opacity < 1) {
-                    planet.material.opacity += 0.05;
-                    requestAnimationFrame(fadeIn);
-                } else {
-                    planet.material.transparent = false;
-                    planet.material.needsUpdate = true;
-                }
-            };
-            fadeIn();
-            
-            console.log('✓ Textura realista aplicada com transição suave');
+            console.log('✓ Textura realista aplicada');
         },
         function(progress) {
             console.log('⏳ Carregando textura...', Math.round((progress.loaded / progress.total) * 100) + '%');

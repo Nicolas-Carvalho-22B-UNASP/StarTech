@@ -127,8 +127,7 @@ function createRealisticPlanet() {
     const material = new THREE.MeshLambertMaterial({
         color: 0xcd5c5c,
         emissive: 0x000000,
-        transparent: true,
-        opacity: 0
+        transparent: false
     });
     
     planet = new THREE.Mesh(geometry, material);
@@ -139,7 +138,7 @@ function createRealisticPlanet() {
     planet.rotation.z = 0.001;
     
     scene.add(planet);
-    console.log('✓ Planeta realista criado (aguardando textura)');
+    console.log('✓ Planeta realista criado');
     
 
     const loader = new THREE.TextureLoader();
@@ -156,51 +155,18 @@ function createRealisticPlanet() {
                 map: texture,
                 color: 0xffaaaa,
                 emissive: 0x000000,
-                transparent: true,
-                opacity: 0
+                transparent: false
             });
             
             planet.material = newMaterial;
             planet.material.needsUpdate = true;
-            
-            // Animação suave de aparição
-            const fadeIn = () => {
-                if (planet.material.opacity < 1) {
-                    planet.material.opacity += 0.05;
-                    requestAnimationFrame(fadeIn);
-                } else {
-                    planet.material.transparent = false;
-                    planet.material.needsUpdate = true;
-                }
-            };
-            fadeIn();
-            
-            console.log('✓ Textura realista aplicada com transição suave');
+            console.log('✓ Textura realista aplicada');
         },
         function(progress) {
             console.log('⏳ Carregando textura...', Math.round((progress.loaded / progress.total) * 100) + '%');
         },
         function(error) {
-            console.log('⚠️ Textura não carregou, mostrando cor de fallback');
-            // Mostrar cor de fallback com transição suave
-            const fallbackMaterial = new THREE.MeshLambertMaterial({
-                color: 0xcd5c5c,
-                emissive: 0x000000,
-                transparent: true,
-                opacity: 0
-            });
-            planet.material = fallbackMaterial;
-            
-            const fadeIn = () => {
-                if (planet.material.opacity < 1) {
-                    planet.material.opacity += 0.05;
-                    requestAnimationFrame(fadeIn);
-                } else {
-                    planet.material.transparent = false;
-                    planet.material.needsUpdate = true;
-                }
-            };
-            fadeIn();
+            console.log('⚠️ Textura não carregou, mantendo cor realista');
         }
     );
 }
