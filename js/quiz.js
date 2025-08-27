@@ -174,15 +174,15 @@ function iniciarQuiz() {
 
 function carregarPergunta() {
     const pergunta = perguntasDoQuiz[perguntaAtual];
-    
+
 
     document.getElementById('planetaTag').textContent = pergunta.planeta;
     document.getElementById('perguntaTexto').textContent = pergunta.pergunta;
-    
+
 
     const alternativasContainer = document.getElementById('alternativas');
     alternativasContainer.innerHTML = '';
-    
+
     pergunta.alternativas.forEach((alternativa, index) => {
         const botaoAlternativa = document.createElement('button');
         botaoAlternativa.className = 'alternativa';
@@ -195,7 +195,7 @@ function carregarPergunta() {
     respostaSelecionada = null;
     mostrandoResposta = false;
     document.getElementById('botaoProxima').disabled = true;
-    
+
 
     const botaoProxima = document.getElementById('botaoProxima');
     if (perguntaAtual === perguntasDoQuiz.length - 1) {
@@ -216,7 +216,7 @@ function selecionarResposta(index) {
 
 
     document.querySelectorAll('.alternativa')[index].classList.add('selecionada');
-    
+
     respostaSelecionada = index;
     document.getElementById('botaoProxima').disabled = false;
 }
@@ -225,12 +225,12 @@ function selecionarResposta(index) {
 function mostrarResultadoPergunta() {
     const pergunta = perguntasDoQuiz[perguntaAtual];
     const alternativas = document.querySelectorAll('.alternativa');
-    
+
     mostrandoResposta = true;
 
 
     alternativas[pergunta.respostaCorreta].classList.add('correta');
-    
+
 
     if (respostaSelecionada !== pergunta.respostaCorreta) {
         alternativas[respostaSelecionada].classList.add('incorreta');
@@ -250,12 +250,12 @@ function proximaPergunta() {
     if (!mostrandoResposta) {
 
         mostrarResultadoPergunta();
-        
+
 
         const botaoProxima = document.getElementById('botaoProxima');
         botaoProxima.disabled = true;
         botaoProxima.textContent = 'AGUARDE...';
-        
+
 
         setTimeout(() => {
             if (perguntaAtual < perguntasDoQuiz.length - 1) {
@@ -299,7 +299,7 @@ function mostrarResultado() {
     } else {
         descricao = 'Continue explorando o StarTech para aprender mais sobre o Sistema Solar!';
     }
-    
+
     document.getElementById('resultadoDescricao').textContent = descricao;
 }
 

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulo | StarTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/planetas.css">
+</head>
+<body>
+
+    <nav class="navegacao">
+        <div class="container-navegacao">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            <ul class="menu-navegacao">
+                <li><a href="../index.html#conteudos">Conteúdos</a></li>
+                <li><a href="../index.html#explorar">Explorar</a></li>
+                <li><a href="../index.html#descobertas">Descobertas</a></li>
+                <li><a href="../index.html#quiz">Quiz</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="secao-planeta">
+        <div class="container">
+            <div class="navegacao-planeta">
+                <a href="../index.html#explorar" class="btn-voltar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Voltar para Explorar
+                </a>
+                
+                <div class="setas-navegacao">
+                    <button class="seta-planeta" id="galaxiaAnterior" title="Galáxia anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <span class="planeta-atual">Triângulo</span>
+                    <button class="seta-planeta" id="proximaGalaxia" title="Próxima galáxia">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="titulo-planeta">
+                <h1>Galáxia do <span class="texto-destaque">Triângulo</span></h1>
+                <p class="subtitulo-planeta">Famosa por sua intensa atividade de formação estelar.</p>
+            </div>
+
+            <div class="conteudo-planeta">
+                <div class="visualizador-3d">
+                    <div class="imagem-galaxia">
+                        <img src="../images/galaxias/triangulo/triangulo.jpg" alt="Galáxia do Triângulo" class="galaxia-imagem">
+                    </div>
+                </div>
+
+                <div class="informacoes-planeta">
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Dimensões</h3>
+                        <div class="dados-info">
+                            <p><strong>Diâmetro:</strong> ~60.000 anos-luz</p>
+                            <p><strong>Espessura:</strong> ~1.200 anos-luz</p>
+                            <p><strong>Massa:</strong> 50 bilhões M☉</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Estrelas</h3>
+                        <div class="dados-info">
+                            <p><strong>Quantidade:</strong> ~40 bilhões</p>
+                            <p><strong>Idade média:</strong> 6 bilhões anos</p>
+                            <p><strong>Formação estelar:</strong> 2,2 M☉/ano</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12L18 8V11H10V13H18V16L22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Localização</h3>
+                        <div class="dados-info">
+                            <p><strong>Distância:</strong> 3 milhões anos-luz</p>
+                            <p><strong>Constelação:</strong> Triangulum</p>
+                            <p><strong>Vel. radial:</strong> -179 km/s</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Centro Galáctico</h3>
+                        <div class="dados-info">
+                            <p><strong>Buraco negro:</strong> Ausente</p>
+                            <p><strong>Núcleo:</strong> Sem dominante</p>
+                            <p><strong>Característica:</strong> Único</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 22L22 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Estrutura</h3>
+                        <div class="dados-info">
+                            <p><strong>Tipo:</strong> Espiral (SA)</p>
+                            <p><strong>Designação:</strong> M33</p>
+                            <p><strong>Região notável:</strong> NGC 604</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="19" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="5" cy="12" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Curiosidades</h3>
+                        <div class="dados-info">
+                            <p><strong>3ª maior:</strong> Do Grupo Local</p>
+                            <p><strong>NGC 604:</strong> Região HII gigante</p>
+                            <p><strong>Descoberta:</strong> 1764</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-sobre-planeta">
+        <div class="container">
+            <h2>Sobre o <span class="texto-destaque">Triângulo</span></h2>
+            <div class="conteudo-sobre">
+                <p>A Galáxia do Triângulo (M33) é famosa por sua intensa atividade de formação estelar. Menor que Via Láctea e Andrômeda, ela compensa em beleza com suas espetaculares regiões de formação estelar, incluindo a famosa NGC 604.</p>
+                
+                <p>É a terceira maior galáxia do Grupo Local, localizada a cerca de 3 milhões de anos-luz da Terra. Diferente de suas vizinhas maiores, possui um centro galáctico sem buraco negro supermassivo dominante, o que a torna única entre as grandes galáxias espirais.</p>
+                
+                <p>NGC 604, uma de suas regiões mais notáveis, é uma das maiores regiões de formação estelar conhecidas no universo local, com mais de 1.500 anos-luz de diâmetro. Esta região produz estrelas massivas jovens que iluminam vastas nuvens de gás e poeira.</p>
+                
+                <p>A Galáxia do Triângulo serve como um laboratório natural para estudar processos de formação estelar e evolução galáctica, oferecendo uma visão detalhada de como as galáxias crescem e se desenvolvem ao longo do tempo cósmico.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <a href="../index.html" class="logo-rodape">
+                    <img src="../images/logo-startech.svg" alt="StarTech">
+                    <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+                </a>
+                <nav class="links-rodape">
+                    <a href="../index.html#conteudos">Conteúdos</a>
+                    <a href="../index.html#explorar">Explorar</a>
+                    <a href="../index.html#descobertas">Descobertas</a>
+                    <a href="../index.html#quiz">Quiz</a>
+                    <a href="../index.html#faq">FAQ</a>
+                    <a href="../index.html#contato">Contato</a>
+                </nav>
+                <div class="redes-sociais">
+                    <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
+                    <a href="#" class="rede-social">
+                        <img src="../images/icon-instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="direitos-autorais">
+                <p>&copy; 2025 StarTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="botao-topo" id="botaoTopo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="../js/navegacao-galaxias.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -10,27 +10,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initVenus() {
     console.log('🚀 Iniciando Vênus 3D Realista...');
-    
+
 
     if (typeof THREE === 'undefined') {
         console.error('❌ Three.js não carregado');
         showError('Three.js não carregado');
         return;
     }
-    
+
     if (typeof THREE.OrbitControls === 'undefined') {
         console.error('❌ OrbitControls não carregado');
         showError('OrbitControls não carregado');
         return;
     }
-    
+
     const canvas = document.getElementById('canvas3d');
     if (!canvas) {
         console.error('❌ Canvas não encontrado');
         showError('Canvas não encontrado');
         return;
     }
-    
+
     try {
         setupScene(canvas);
         setupCamera(canvas);
@@ -41,7 +41,7 @@ function initVenus() {
         setupSmoothControls();
         setupEvents();
         animate();
-        
+
         console.log('✅ Vênus 3D Realista iniciado com sucesso!');
     } catch (error) {
         console.error('❌ Erro:', error);
@@ -60,7 +60,7 @@ function setupCamera(canvas) {
 
     const rect = canvas.getBoundingClientRect();
     const aspect = rect.width / rect.height;
-    
+
 
     camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1000);
     camera.position.set(0, 0, 6);
@@ -73,19 +73,19 @@ function setupRenderer(canvas) {
         antialias: true,
         alpha: false
     });
-    
+
 
     const rect = canvas.getBoundingClientRect();
     renderer.setSize(rect.width, rect.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    
+
 
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.toneMapping = THREE.LinearToneMapping;
     renderer.toneMappingExposure = 0.6;
-    
+
     console.log('✓ Renderer realista criado');
 }
 
@@ -93,12 +93,12 @@ function setupRealisticLights() {
 
     const ambientLight = new THREE.AmbientLight(0x202040, 0.1);
     scene.add(ambientLight);
-    
+
 
     const sunLight = new THREE.DirectionalLight(0xfff5e6, 1.2);
     sunLight.position.set(8, 3, 4);
     sunLight.castShadow = true;
-    
+
 
     sunLight.shadow.mapSize.width = 2048;
     sunLight.shadow.mapSize.height = 2048;
@@ -110,36 +110,36 @@ function setupRealisticLights() {
     sunLight.shadow.camera.bottom = -10;
     sunLight.shadow.bias = -0.0001;
     scene.add(sunLight);
-    
+
 
     const fillLight = new THREE.DirectionalLight(0x4a5568, 0.15);
     fillLight.position.set(-5, -2, -3);
     scene.add(fillLight);
-    
+
     console.log('✓ Iluminação realista criada');
 }
 
 function createRealisticPlanet() {
 
     const geometry = new THREE.SphereGeometry(1.6, 64, 64);
-    
+
 
     const material = new THREE.MeshLambertMaterial({
         color: 0xffc649,
         emissive: 0x000000,
         transparent: false
     });
-    
+
     planet = new THREE.Mesh(geometry, material);
     planet.castShadow = true;
     planet.receiveShadow = true;
-    
+
 
     planet.rotation.z = 0.001;
-    
+
     scene.add(planet);
     console.log('✓ Planeta realista criado');
-    
+
 
     const loader = new THREE.TextureLoader();
     loader.load(
@@ -149,7 +149,7 @@ function createRealisticPlanet() {
             texture.wrapS = THREE.RepeatWrapping;
             texture.wrapT = THREE.RepeatWrapping;
             texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
-            
+
 
             const newMaterial = new THREE.MeshLambertMaterial({
                 map: texture,
@@ -157,7 +157,7 @@ function createRealisticPlanet() {
                 emissive: 0x000000,
                 transparent: false
             });
-            
+
             planet.material = newMaterial;
             planet.material.needsUpdate = true;
             console.log('✓ Textura realista aplicada');
@@ -176,20 +176,20 @@ function createBeautifulStars() {
     const starsVertices = [];
     const starsColors = [];
     const starsSizes = [];
-    
+
 
     for (let i = 0; i < 1500; i++) {
 
         const radius = 150 + Math.random() * 200;
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.random() * Math.PI;
-        
+
         const x = radius * Math.sin(phi) * Math.cos(theta);
         const y = radius * Math.sin(phi) * Math.sin(theta);
         const z = radius * Math.cos(phi);
-        
+
         starsVertices.push(x, y, z);
-        
+
 
         const starType = Math.random();
         if (starType < 0.7) {
@@ -202,15 +202,15 @@ function createBeautifulStars() {
 
             starsColors.push(1, 0.7, 0.5);
         }
-        
+
 
         starsSizes.push(Math.random() * 3 + 1);
     }
-    
+
     starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
     starsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starsColors, 3));
     starsGeometry.setAttribute('size', new THREE.Float32BufferAttribute(starsSizes, 1));
-    
+
 
     const starsMaterial = new THREE.PointsMaterial({
         size: 2,
@@ -220,7 +220,7 @@ function createBeautifulStars() {
         opacity: 0.9,
         blending: THREE.AdditiveBlending
     });
-    
+
     starField = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(starField);
     console.log('✓ Campo de estrelas realista criado');
@@ -228,49 +228,49 @@ function createBeautifulStars() {
 
 function setupSmoothControls() {
     controls = new THREE.OrbitControls(camera, renderer.domElement);
-    
+
 
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
     controls.rotateSpeed = 0.3;
     controls.zoomSpeed = 0.5;
     controls.panSpeed = 0.5;
-    
+
 
     controls.minDistance = 2.5;
     controls.maxDistance = 12;
     controls.enablePan = false;
-    
+
 
     controls.maxPolarAngle = Math.PI;
     controls.minPolarAngle = 0;
-    
+
     console.log('✓ Controles suaves criados');
 }
 
 function setupEvents() {
 
     window.addEventListener('resize', handleResize);
-    
+
 
     const btnPausar = document.getElementById('btnPausar');
     if (btnPausar) btnPausar.addEventListener('click', toggleRotation);
-    
+
     const btnRotateLeft = document.getElementById('btnRotateLeft');
     if (btnRotateLeft) btnRotateLeft.addEventListener('click', () => setRotation(-1));
-    
+
     const btnRotateRight = document.getElementById('btnRotateRight');
     if (btnRotateRight) btnRotateRight.addEventListener('click', () => setRotation(1));
-    
+
     const btnZoomIn = document.getElementById('btnZoomIn');
     if (btnZoomIn) btnZoomIn.addEventListener('click', () => zoom(0.5));
-    
+
     const btnZoomOut = document.getElementById('btnZoomOut');
     if (btnZoomOut) btnZoomOut.addEventListener('click', () => zoom(-0.5));
-    
+
     const btnHome = document.getElementById('btnHome');
     if (btnHome) btnHome.addEventListener('click', resetView);
-    
+
 
     document.addEventListener('keydown', (e) => {
         switch(e.code) {
@@ -292,7 +292,7 @@ function setupEvents() {
                 break;
         }
     });
-    
+
     console.log('✓ Eventos configurados');
 }
 
@@ -311,7 +311,7 @@ function zoom(delta) {
     const direction = new THREE.Vector3();
     camera.getWorldDirection(direction);
     camera.position.addScaledVector(direction, delta);
-    
+
 
     const distance = camera.position.length();
     if (distance < 2.5) camera.position.normalize().multiplyScalar(2.5);
@@ -331,7 +331,7 @@ function resetView() {
 function updatePauseButton() {
     const btn = document.getElementById('btnPausar');
     if (!btn) return;
-    
+
     if (isRotating) {
         btn.innerHTML = `
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -354,7 +354,7 @@ function handleResize() {
     const canvas = document.getElementById('canvas3d');
     const rect = canvas.getBoundingClientRect();
     const aspect = rect.width / rect.height;
-    
+
     camera.aspect = aspect;
     camera.updateProjectionMatrix();
     renderer.setSize(rect.width, rect.height);
@@ -362,22 +362,22 @@ function handleResize() {
 
 function animate() {
     requestAnimationFrame(animate);
-    
+
 
     if (isRotating && planet) {
 
         planet.rotation.y += 0.002 * rotationDirection;
     }
-    
+
 
     if (starField) {
         starField.rotation.y += 0.0001;
         starField.rotation.x += 0.00005;
     }
-    
+
 
     controls.update();
-    
+
 
     renderer.render(scene, camera);
 }

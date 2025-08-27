@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipse Solar | StarTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/planetas.css">
+</head>
+<body>
+
+    <nav class="navegacao">
+        <div class="container-navegacao">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            <ul class="menu-navegacao">
+                <li><a href="../index.html#conteudos">Conteúdos</a></li>
+                <li><a href="../index.html#explorar">Explorar</a></li>
+                <li><a href="../index.html#descobertas">Descobertas</a></li>
+                <li><a href="../index.html#quiz">Quiz</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="secao-planeta">
+        <div class="container">
+            <div class="navegacao-planeta">
+                <a href="../index.html#explorar" class="btn-voltar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Voltar para Explorar
+                </a>
+                
+                <div class="setas-navegacao">
+                    <button class="seta-planeta" id="fenomenoAnterior" title="Fenômeno anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <span class="planeta-atual">Eclipse Solar</span>
+                    <button class="seta-planeta" id="proximoFenomeno" title="Próximo fenômeno">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="titulo-planeta">
+                <h1>Fenômeno <span class="texto-destaque">Eclipse Solar</span></h1>
+                <p class="subtitulo-planeta">Um espetáculo celestial onde a Lua obscurece o Sol.</p>
+            </div>
+
+            <div class="conteudo-planeta">
+                <div class="visualizador-3d">
+                    <div class="imagem-galaxia">
+                        <img src="../images/fenomenos/eclipse-solar/eclipse.jpg" alt="Eclipse Solar" class="galaxia-imagem">
+                    </div>
+                </div>
+
+                <div class="informacoes-planeta">
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Tipos</h3>
+                        <div class="dados-info">
+                            <p><strong>Total:</strong> Lua cobre Sol completamente</p>
+                            <p><strong>Parcial:</strong> Lua cobre Sol parcialmente</p>
+                            <p><strong>Anular:</strong> Anel de fogo visível</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Duração</h3>
+                        <div class="dados-info">
+                            <p><strong>Eclipse total:</strong> Até 7 minutos</p>
+                            <p><strong>Eclipse parcial:</strong> Até 3 horas</p>
+                            <p><strong>Eclipse anular:</strong> Até 12 minutos</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12L18 8V11H10V13H18V16L22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Frequência</h3>
+                        <div class="dados-info">
+                            <p><strong>Global:</strong> 2-5 eclipses/ano</p>
+                            <p><strong>Mesmo local:</strong> A cada 375 anos</p>
+                            <p><strong>Faixa total:</strong> 200-300 km largura</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Temperatura</h3>
+                        <div class="dados-info">
+                            <p><strong>Queda:</strong> 5-15°C durante eclipse</p>
+                            <p><strong>Coroa solar:</strong> 1-2 milhões°C</p>
+                            <p><strong>Umbra:</strong> Sombra mais escura</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 12S3 3 12 3S22 12 22 12S21 21 12 21S2 12 2 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Observação</h3>
+                        <div class="dados-info">
+                            <p><strong>Proteção:</strong> Filtros solares especiais</p>
+                            <p><strong>Totalidade:</strong> Observação direta segura</p>
+                            <p><strong>Coroa:</strong> Visível a olho nu</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="19" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="5" cy="12" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Curiosidades</h3>
+                        <div class="dados-info">
+                            <p><strong>Coincidência:</strong> Sol 400x maior/distante</p>
+                            <p><strong>Animais:</strong> Ficam confusos</p>
+                            <p><strong>História:</strong> Previstos há milênios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-sobre-planeta">
+        <div class="container">
+            <h2>Sobre o <span class="texto-destaque">Eclipse Solar</span></h2>
+            <div class="conteudo-sobre">
+                <p>Um eclipse solar é um dos fenômenos astronômicos mais espetaculares que podemos observar da Terra. Ocorre quando a Lua se posiciona entre a Terra e o Sol, projetando sua sombra sobre nosso planeta e obscurecendo temporariamente o disco solar.</p>
+                
+                <p>Durante um eclipse solar total, por alguns preciosos minutos, o dia se transforma em uma noite artificial. A temperatura cai, as estrelas aparecem no céu, e a coroa solar - normalmente invisível - brilha como um halo prateado ao redor da silhueta lunar. Este espetáculo revela a arquitetura oculta da atmosfera solar.</p>
+                
+                <p>A coincidência que torna os eclipses possíveis é extraordinária: embora o Sol seja 400 vezes maior que a Lua, ele também está aproximadamente 400 vezes mais distante, fazendo com que ambos tenham quase o mesmo tamanho aparente no céu terrestre.</p>
+                
+                <p>Os eclipses solares têm fascinado a humanidade por milênios, permitindo descobertas científicas revolucionárias, como a confirmação da teoria da relatividade de Einstein em 1919. Hoje continuam sendo eventos que unem pessoas de todo o mundo na contemplação da magnificência do cosmos.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <a href="../index.html" class="logo-rodape">
+                    <img src="../images/logo-startech.svg" alt="StarTech">
+                    <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+                </a>
+                <nav class="links-rodape">
+                    <a href="../index.html#conteudos">Conteúdos</a>
+                    <a href="../index.html#explorar">Explorar</a>
+                    <a href="../index.html#descobertas">Descobertas</a>
+                    <a href="../index.html#quiz">Quiz</a>
+                    <a href="../index.html#faq">FAQ</a>
+                    <a href="../index.html#contato">Contato</a>
+                </nav>
+                <div class="redes-sociais">
+                    <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
+                    <a href="#" class="rede-social">
+                        <img src="../images/icon-instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="direitos-autorais">
+                <p>&copy; 2025 StarTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="botao-topo" id="botaoTopo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="../js/navegacao-fenomenos.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

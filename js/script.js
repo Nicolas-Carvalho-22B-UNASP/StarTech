@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+
+    emailjs.init('ggOjiFu1Y_FoLflH0');
+
     criarCampoEstrelado();
 
     configurarNavegacaoSuave();
@@ -180,12 +183,28 @@ function configurarFormularioContato() {
         botaoEnviar.textContent = 'ENVIANDO...';
         botaoEnviar.disabled = true;
 
-        setTimeout(() => {
-            mostrarNotificacao('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'sucesso');
-            formContato.reset();
-            botaoEnviar.textContent = textoOriginal;
-            botaoEnviar.disabled = false;
-        }, 2000);
+
+        const templateParams = {
+            from_name: nome,
+            from_email: email,
+            subject: assunto,
+            message: mensagem
+        };
+
+        emailjs.send('service_yb1gz9u', 'template_5txiuwt', templateParams)
+            .then(function(response) {
+                console.log('Email enviado com sucesso:', response.status, response.text);
+                mostrarNotificacao('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'sucesso');
+                formContato.reset();
+            })
+            .catch(function(error) {
+                console.error('Erro ao enviar email:', error);
+                mostrarNotificacao('Erro ao enviar mensagem. Tente novamente mais tarde.', 'erro');
+            })
+            .finally(function() {
+                botaoEnviar.textContent = textoOriginal;
+                botaoEnviar.disabled = false;
+            });
     });
 }
 

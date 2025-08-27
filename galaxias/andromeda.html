@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrômeda | StarTech</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/planetas.css">
+</head>
+<body>
+
+    <nav class="navegacao">
+        <div class="container-navegacao">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            <ul class="menu-navegacao">
+                <li><a href="../index.html#conteudos">Conteúdos</a></li>
+                <li><a href="../index.html#explorar">Explorar</a></li>
+                <li><a href="../index.html#descobertas">Descobertas</a></li>
+                <li><a href="../index.html#quiz">Quiz</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contato">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="secao-planeta">
+        <div class="container">
+            <div class="navegacao-planeta">
+                <a href="../index.html#explorar" class="btn-voltar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Voltar para Explorar
+                </a>
+                
+                <div class="setas-navegacao">
+                    <button class="seta-planeta" id="galaxiaAnterior" title="Galáxia anterior">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <span class="planeta-atual">Andrômeda</span>
+                    <button class="seta-planeta" id="proximaGalaxia" title="Próxima galáxia">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="titulo-planeta">
+                <h1>Galáxia <span class="texto-destaque">Andrômeda</span></h1>
+                <p class="subtitulo-planeta">A maior galáxia do Grupo Local e nossa vizinha mais próxima.</p>
+            </div>
+
+            <div class="conteudo-planeta">
+                <div class="visualizador-3d">
+                    <div class="imagem-galaxia">
+                        <img src="../images/galaxias/andromeda/andromeda.jpg" alt="Galáxia Andrômeda" class="galaxia-imagem">
+                    </div>
+                </div>
+
+                <div class="informacoes-planeta">
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Dimensões</h3>
+                        <div class="dados-info">
+                            <p><strong>Diâmetro:</strong> ~220.000 anos-luz</p>
+                            <p><strong>Espessura:</strong> ~3.000 anos-luz</p>
+                            <p><strong>Massa:</strong> 1,5 trilhão M☉</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Estrelas</h3>
+                        <div class="dados-info">
+                            <p><strong>Quantidade:</strong> ~1 trilhão</p>
+                            <p><strong>Idade média:</strong> 9 bilhões anos</p>
+                            <p><strong>Formação estelar:</strong> 0,4 M☉/ano</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 12L18 8V11H10V13H18V16L22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Movimento</h3>
+                        <div class="dados-info">
+                            <p><strong>Vel. aproximação:</strong> 110 km/s</p>
+                            <p><strong>Distância atual:</strong> 2,5 milhões a.l.</p>
+                            <p><strong>Colisão em:</strong> 4,5 bilhões anos</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Centro Galáctico</h3>
+                        <div class="dados-info">
+                            <p><strong>Buraco negro:</strong> Núcleo duplo</p>
+                            <p><strong>Massa central:</strong> 100 milhões M☉</p>
+                            <p><strong>Atividade:</strong> Baixa</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 22L22 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Estrutura</h3>
+                        <div class="dados-info">
+                            <p><strong>Tipo:</strong> Espiral (SA/Sb)</p>
+                            <p><strong>Designação:</strong> M31</p>
+                            <p><strong>Braços:</strong> Bem definidos</p>
+                        </div>
+                    </div>
+
+                    <div class="card-info">
+                        <div class="icone-info">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="19" cy="12" r="1" fill="currentColor"/>
+                                <circle cx="5" cy="12" r="1" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Curiosidades</h3>
+                        <div class="dados-info">
+                            <p><strong>Galáxias satélites:</strong> M32 e M110</p>
+                            <p><strong>Visível a olho nu:</strong> Sim</p>
+                            <p><strong>Descoberta:</strong> 964 d.C.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="secao-sobre-planeta">
+        <div class="container">
+            <h2>Sobre <span class="texto-destaque">Andrômeda</span></h2>
+            <div class="conteudo-sobre">
+                <p>A Galáxia de Andrômeda é a maior galáxia do Grupo Local e nossa vizinha mais próxima. Com cerca de 1 trilhão de estrelas, ela é aproximadamente duas vezes maior que a Via Láctea e está localizada a 2,5 milhões de anos-luz de distância.</p>
+                
+                <p>Conhecida também como M31, Andrômeda é visível a olho nu como uma mancha difusa no céu noturno do hemisfério norte. Possui um núcleo duplo peculiar e é acompanhada por duas galáxias satélites principais: M32 e M110.</p>
+                
+                <p>Uma das características mais fascinantes de Andrômeda é que ela está se aproximando de nós a uma velocidade de 110 km/s. Em aproximadamente 4,5 bilhões de anos, colidirá com a Via Láctea, criando uma nova galáxia elíptica que os cientistas já apelidaram de "Lactômeda".</p>
+                
+                <p>Esta galáxia serve como um laboratório natural para estudar a evolução galáctica e a dinâmica de grandes estruturas cósmicas, oferecendo insights sobre o futuro da nossa própria galáxia.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="conteudo-rodape">
+                <a href="../index.html" class="logo-rodape">
+                    <img src="../images/logo-startech.svg" alt="StarTech">
+                    <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+                </a>
+                <nav class="links-rodape">
+                    <a href="../index.html#conteudos">Conteúdos</a>
+                    <a href="../index.html#explorar">Explorar</a>
+                    <a href="../index.html#descobertas">Descobertas</a>
+                    <a href="../index.html#quiz">Quiz</a>
+                    <a href="../index.html#faq">FAQ</a>
+                    <a href="../index.html#contato">Contato</a>
+                </nav>
+                <div class="redes-sociais">
+                    <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
+                    <a href="#" class="rede-social">
+                        <img src="../images/icon-instagram.svg" alt="Instagram">
+                    </a>
+                </div>
+            </div>
+            <div class="direitos-autorais">
+                <p>&copy; 2025 StarTech. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="botao-topo" id="botaoTopo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="../js/navegacao-galaxias.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

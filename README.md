@@ -9,7 +9,8 @@
 - **⚡ Fenômenos Cósmicos**: Eclipse Solar, Buraco Negro, Meteoro e Lua de Sangue
 - **🎮 Controles Intuitivos**: Rotação, zoom e navegação fluida
 - **📚 Conteúdo Educativo**: Informações científicas detalhadas de cada elemento
-- **🧠 Quiz Interativo**: 20 perguntas sobre os planetas com sistema de pontuação
+- **🧠 Quiz Interativo**: 10 perguntas sobre os planetas com sistema de pontuação
+- **📧 Sistema de Contato**: Formulário funcional com envio real de emails via EmailJS
 - **🌌 Fundo Estrelado**: Atmosfera espacial imersiva
 - **📱 Design Responsivo**: Funciona perfeitamente em todos os dispositivos
 - **🔄 Navegação Circular**: Tour completo pelo Sistema Solar e universo
@@ -43,9 +44,10 @@
 
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilos modernos e responsivos
-- **JavaScript ES6+** - Interatividade e lógica
+- **JavaScript** - Interatividade e lógica
 - **Three.js** - Renderização 3D dos planetas
 - **WebGL** - Aceleração gráfica por hardware
+- **EmailJS** - Envio de emails via formulário de contato
 
 ## 🎮 Controles Interativos
 
@@ -80,6 +82,7 @@
 4. **Navegue** entre planetas usando as setas
 5. **Leia** as informações científicas de cada planeta
 6. **Teste** seus conhecimentos no Quiz dos Planetas
+7. **Entre em contato** via formulário para dúvidas e sugestões
 
 ### 🧠 Quiz dos Planetas
 
@@ -88,6 +91,24 @@
 - **Sistema de pontuação** com classificações
 - **Feedback imediato** para cada resposta
 - **Resultados detalhados** ao final
+
+## 📧 Sistema de Contato
+
+O projeto inclui um **formulário de contato funcional** que permite aos usuários enviarem sugestões, dúvidas e feedback diretamente para a equipe StarTech.
+
+### ⚡ Características:
+- **📨 Envio real de emails** via API EmailJS
+- **🎨 Design integrado** com a identidade visual do projeto
+- **✅ Validação automática** de campos obrigatórios
+- **📧 Template personalizado** com branding StarTech
+- **🔒 Seguro e confiável** sem exposição de credenciais
+- **📱 Responsivo** para todos os dispositivos
+
+### 📋 Campos do Formulário:
+- **Nome** (obrigatório)
+- **Email** (obrigatório para resposta)
+- **Assunto** (obrigatório)
+- **Mensagem** (obrigatória)
 
 ## 📱 Compatibilidade
 
