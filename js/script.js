@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    configurarMenuLateral();
 
-    emailjs.init('ggOjiFu1Y_FoLflH0');
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init('ggOjiFu1Y_FoLflH0');
+    }
 
     criarCampoEstrelado();
 
@@ -23,6 +26,139 @@ document.addEventListener('DOMContentLoaded', function() {
 
     configurarBotoesHero();
 });
+
+window.addEventListener('load', function() {
+    if (!window.menuLateralConfigurado) {
+        configurarMenuLateral();
+    }
+});
+
+setTimeout(function() {
+    if (!window.menuLateralConfigurado) {
+        console.log('⏰ Tentativa de configuração tardia do menu lateral...');
+        configurarMenuLateral();
+    }
+}, 1000);
+
+window.testarMenuLateral = function() {
+    console.log('🔍 Testando menu lateral...');
+    console.log('Elementos DOM:', {
+        botaoHamburger: document.getElementById('botaoHamburger'),
+        menuLateral: document.getElementById('menuLateral'),
+        botaoFecharMenu: document.getElementById('botaoFecharMenu'),
+        overlayMenu: document.getElementById('overlayMenu')
+    });
+    console.log('Menu configurado:', window.menuLateralConfigurado);
+    console.log('Para forçar reconfiguração: window.menuLateralConfigurado = false; configurarMenuLateral();');
+};
+
+function configurarMenuLateral() {
+    if (window.menuLateralConfigurado) {
+        return;
+    }
+
+    const botaoHamburger = document.getElementById('botaoHamburger');
+    const menuLateral = document.getElementById('menuLateral');
+    const botaoFecharMenu = document.getElementById('botaoFecharMenu');
+    const overlayMenu = document.getElementById('overlayMenu');
+    const linksMenuLateral = document.querySelectorAll('.menu-navegacao-lateral a');
+
+    if (!botaoHamburger || !menuLateral || !botaoFecharMenu || !overlayMenu) {
+        console.log('❌ Menu lateral: elementos não encontrados', {
+            botaoHamburger: !!botaoHamburger,
+            menuLateral: !!menuLateral,
+            botaoFecharMenu: !!botaoFecharMenu,
+            overlayMenu: !!overlayMenu
+        });
+        return;
+    }
+
+    function abrirMenu() {
+        console.log('🔓 Abrindo menu lateral...');
+        botaoHamburger.classList.add('ativo');
+        menuLateral.classList.add('aberto');
+        overlayMenu.classList.add('ativo');
+        document.body.classList.add('menu-aberto');
+    }
+
+    function fecharMenu() {
+        console.log('🔒 Fechando menu lateral...');
+        botaoHamburger.classList.remove('ativo');
+        menuLateral.classList.remove('aberto');
+        overlayMenu.classList.remove('ativo');
+        document.body.classList.remove('menu-aberto');
+    }
+
+    if (botaoHamburger) {
+        botaoHamburger.addEventListener('click', function() {
+            if (menuLateral.classList.contains('aberto')) {
+                fecharMenu();
+            } else {
+                abrirMenu();
+            }
+        });
+    }
+
+    if (botaoFecharMenu) {
+        botaoFecharMenu.addEventListener('click', fecharMenu);
+    }
+
+    if (overlayMenu) {
+        overlayMenu.addEventListener('click', fecharMenu);
+    }
+
+    linksMenuLateral.forEach(link => {
+        link.addEventListener('click', function(e) {
+            fecharMenu();
+            
+            const href = this.getAttribute('href');
+            
+            if (href.includes('#')) {
+                if (window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html')) {
+                    return;
+                }
+                
+                e.preventDefault();
+                const targetId = href.split('#')[1];
+                const targetElement = document.querySelector('#' + targetId);
+                
+                if (targetElement) {
+                    setTimeout(() => {
+                        const headerHeight = document.querySelector('.navegacao').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            }
+        });
+    });
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            fecharMenu();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && menuLateral.classList.contains('aberto')) {
+            fecharMenu();
+        }
+    });
+
+    window.menuLateralConfigurado = true;
+    console.log('🎉 Menu lateral configurado com sucesso!');
+    console.log('📱 Elementos encontrados:', {
+        botaoHamburger: !!botaoHamburger,
+        menuLateral: !!menuLateral,
+        botaoFecharMenu: !!botaoFecharMenu,
+        overlayMenu: !!overlayMenu,
+        linksMenuLateral: linksMenuLateral.length
+    });
+}
 
 function criarCampoEstrelado() {
     const campoEstrelado = document.getElementById('campoEstrelado');

@@ -36,18 +36,20 @@
 ## ⚡ Fenômenos Cósmicos
 
 1. 🌑 **Eclipse Solar** - Alinhamento perfeito Sol-Lua-Terra
-2. ⚫ **Buraco Negro** - Singularidade gravitacional extrema  
+2. ⚡ **Erupção Solar** - Explosões de energia magnética do Sol
 3. ☄️ **Meteoro** - Visitantes cósmicos luminosos
-4. 🌙 **Lua de Sangue** - Eclipse lunar avermelhado
+4. 💥 **Supernova** - Morte explosiva de estrelas massivas
 
 ## 🛠️ Tecnologias Utilizadas
 
 - **HTML5** - Estrutura semântica
-- **CSS3** - Estilos modernos e responsivos
-- **JavaScript** - Interatividade e lógica
+- **CSS3** - Estilos modernos e responsivos com animações
+- **JavaScript ES6+** - Interatividade, lógica e carrossel dos dev's
 - **Three.js** - Renderização 3D dos planetas
 - **WebGL** - Aceleração gráfica por hardware
 - **EmailJS** - Envio de emails via formulário de contato
+- **CSS Transforms** - Animações fluidas do carrossel
+- **Touch Events** - Suporte a gestos mobile
 
 ## 🎮 Controles Interativos
 
@@ -110,13 +112,26 @@ O projeto inclui um **formulário de contato funcional** que permite aos usuári
 - **Assunto** (obrigatório)
 - **Mensagem** (obrigatória)
 
-## 📱 Compatibilidade
+## 👥 Desenvolvedores
 
-- ✅ **Chrome** 80+
-- ✅ **Firefox** 75+
-- ✅ **Safari** 13+
-- ✅ **Edge** 80+
-- ✅ **Mobile** (iOS/Android)
+A seção **Dev's** apresenta a equipe responsável pela criação do StarTech em formato de carrossel interativo, com informações pessoais e aspirações profissionais de cada membro:
+
+- **🧑‍💻 Marcos** - 17 anos, São Paulo/SP - Aspirante a ADS na UNASP
+- **🧑‍🔬 Igor** - 16 anos, São Paulo/SP - Técnico em Informática, futuro Químico  
+- **💻 Lucas** - 17 anos, São Paulo/SP - Futuro programador apaixonado por tecnologia
+- **🎨 Beatriz** - 18 anos, São Paulo/SP - Desenvolvedora Web e Designer
+- **🎮 Matheus** - 16 anos, São Paulo/SP - Criador de jogos, músicas e desenhos para a glória de Deus
+- **🚀 Nicolas** - 17 anos, São Paulo/SP - Aspirante a FullStack Developer
+
+### ✨ Características da Seção:
+- **🎠 Carrossel interativo** com transições suaves
+- **🖼️ Fotos individuais** dos desenvolvedores em destaque
+- **📝 Depoimentos pessoais** sobre objetivos de carreira
+- **🔘 Navegação por bolinhas** para acesso direto aos dev's
+- **⏰ Autoplay inteligente** com pausa ao passar o mouse
+- **👆 Arrastar e deslizar** compatível com mouse e touch
+- **🎨 Design responsivo** integrado ao tema do projeto
+- **💫 Animações suaves** de entrada e saída dos slides
 
 ## 🎯 Público-Alvo
 

@@ -14,16 +14,53 @@
                 <img src="images/logo-startech.svg" alt="StarTech Logo">
                 <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
             </a>
-            <ul class="menu-navegacao">
+            
+            
+            <ul class="menu-navegacao menu-desktop">
                 <li><a href="#conteudos">Conteúdos</a></li>
                 <li><a href="#explorar">Explorar</a></li>
                 <li><a href="#descobertas">Descobertas</a></li>
                 <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#faq">FAQ</a></li>
+                <li><a href="#desenvolvedores">Dev's</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+
+            
+            <button class="botao-hamburger" id="botaoHamburger">
+                <span class="linha-hamburger"></span>
+                <span class="linha-hamburger"></span>
+                <span class="linha-hamburger"></span>
+            </button>
         </div>
     </nav>
+
+    
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="header-menu-lateral">
+            <a href="#" class="logo">
+                <img src="images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            <button class="botao-fechar-menu" id="botaoFecharMenu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="menu-navegacao-lateral">
+            <li><a href="#conteudos">Conteúdos</a></li>
+            <li><a href="#explorar">Explorar</a></li>
+            <li><a href="#descobertas">Descobertas</a></li>
+            <li><a href="#quiz">Quiz</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#desenvolvedores">Dev's</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    
+    <div class="overlay-menu" id="overlayMenu"></div>
 
     <section class="secao-hero">
 
@@ -281,6 +318,89 @@
         </div>
     </section>
 
+    <section class="secao-desenvolvedores" id="desenvolvedores">
+        <div class="container">
+            <h2><span class="texto-destaque">Dev's</span></h2>
+            
+            <div class="carrossel-desenvolvedores">
+                <div class="slide-desenvolvedor ativo">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Marcos.jpg" alt="Marcos">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Marcos, nasci na Zona Sul de São Paulo, tenho 17 anos, desejo fazer ADS na UNASP e seguir na área de TI"</p>
+                        <h3>Marcos, 17 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+                
+                <div class="slide-desenvolvedor">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Igor.jpg" alt="Igor">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Olá, sou o Igor Fernandes Rodrigues e tenho 16 anos. Atualmente estou estudando na UNASP/SP no técnico de informática. Futuro Químico"</p>
+                        <h3>Igor, 16 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+                
+                <div class="slide-desenvolvedor">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Lucas.jpg" alt="Lucas">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Meu nome é Lucas Aguiar, tenho 17 anos, quero ser programador no futuro e gosto muito de tecnologia."</p>
+                        <h3>Lucas, 17 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+                
+                <div class="slide-desenvolvedor">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Bea.jpg" alt="Beatriz">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Sou a Beatriz Valentina, tenho 18 anos e quero trabalhar na área de TI em Desenvolvimento de Web sites e Design"</p>
+                        <h3>Beatriz, 18 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+                
+                <div class="slide-desenvolvedor">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Matheus.jpg" alt="Matheus">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Meu nome é Matheus, tenho 16 anos, faço jogos, musicas e desenhos pra glória de Deus e procuro seguir o caminho do TI."</p>
+                        <h3>Matheus, 16 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+                
+                <div class="slide-desenvolvedor">
+                    <div class="foto-desenvolvedor">
+                        <img src="images/Devs/Nicolas.jpg" alt="Nicolas">
+                    </div>
+                    <div class="info-desenvolvedor">
+                        <p class="depoimento">"Sou o Nicolas tenho 17 anos e quero seguir a carreira de TI possivelmente FullStack"</p>
+                        <h3>Nicolas, 17 anos</h3>
+                        <p class="cidade">São Paulo, SP</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navegacao-carrossel">
+                <span class="ponto-navegacao ativo" data-slide="0"></span>
+                <span class="ponto-navegacao" data-slide="1"></span>
+                <span class="ponto-navegacao" data-slide="2"></span>
+                <span class="ponto-navegacao" data-slide="3"></span>
+                <span class="ponto-navegacao" data-slide="4"></span>
+                <span class="ponto-navegacao" data-slide="5"></span>
+            </div>
+        </div>
+    </section>
+
     <section class="secao-contato" id="contato">
         <div class="container">
             <h2>Entre em <span class="texto-destaque">Contato</span></h2>
@@ -325,11 +445,12 @@
                     <a href="#descobertas">Descobertas</a>
                     <a href="#quiz">Quiz</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#desenvolvedores">Dev's</a>
                     <a href="#contato">Contato</a>
                 </nav>
                 <div class="redes-sociais">
                     <h4>Rede Social do <span class="texto-destaque">StarTech</span></h4>
-                    <a href="#" class="rede-social">
+                    <a href="https://www.instagram.com/star._tech7" class="rede-social" target="_blank">
                         <img src="images/icon-instagram.svg" alt="Instagram">
                     </a>
                 </div>
@@ -349,5 +470,6 @@
     
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/carrossel-devs.js"></script>
 </body>
 </html>
