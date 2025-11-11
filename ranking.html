@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking | StarTech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/ranking.css">
+</head>
+<body>
+
+    <nav class="navegacao">
+        <div class="container-navegacao">
+            <a href="index.html" class="logo">
+                <img src="images/logo-startech.svg" alt="StarTech Logo">
+                <span><span class="texto-logo-star">Star</span><span class="texto-logo-tech">Tech</span></span>
+            </a>
+            
+            <div class="botoes-autenticacao">
+                <a href="login.html" class="botao-login">Entrar</a>
+                <a href="cadastro.html" class="botao-cadastro">Cadastrar</a>
+            </div>
+
+            <a href="quiz.html" class="botao-voltar-header">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Voltar
+            </a>
+        </div>
+    </nav>
+
+    <main class="container-ranking">
+        <div class="ranking-header">
+            <div class="icone-ranking">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h1><span class="texto-destaque">Ranking</span> dos Exploradores</h1>
+            <p>Os maiores conhecedores do Sistema Solar</p>
+        </div>
+
+        <div class="lista-ranking">
+            <div class="item-ranking">
+                <div class="posicao">1</div>
+                <div class="info-jogador">
+                    <div class="avatar-pequeno">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 21C20 17.134 16.418 14 12 14C7.582 14 4 17.134 4 21" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="nome">Cosmos Almeida</span>
+                </div>
+                <div class="pontos-item">1000 pts</div>
+            </div>
+        </div>
+
+        <div class="botao-container">
+            <button class="botao-jogar" onclick="window.location.href='quiz.html'">
+                JOGAR AGORA
+            </button>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

@@ -11,6 +11,7 @@
 - **📚 Conteúdo Educativo**: Informações científicas detalhadas de cada elemento
 - **🧠 Quiz Interativo**: 10 perguntas sobre os planetas com sistema de pontuação
 - **📧 Sistema de Contato**: Formulário funcional com envio real de emails via EmailJS
+- **🔐 Sistema de Autenticação**: Telas de login e cadastro com design consistente
 - **🌌 Fundo Estrelado**: Atmosfera espacial imersiva
 - **📱 Design Responsivo**: Funciona perfeitamente em todos os dispositivos
 - **🔄 Navegação Circular**: Tour completo pelo Sistema Solar e universo
@@ -50,6 +51,7 @@
 - **EmailJS** - Envio de emails via formulário de contato
 - **CSS Transforms** - Animações fluidas do carrossel
 - **Touch Events** - Suporte a gestos mobile
+- **LocalStorage** - Armazenamento local para persistência de dados
 
 ## 🎮 Controles Interativos
 
@@ -79,12 +81,13 @@
 ## 🚀 Como Usar
 
 1. **Navegue** pela página principal
-2. **Clique** em "Explorar" para começar pelo Mercúrio
-3. **Use** os controles para interagir com os modelos 3D
-4. **Navegue** entre planetas usando as setas
-5. **Leia** as informações científicas de cada planeta
-6. **Teste** seus conhecimentos no Quiz dos Planetas
-7. **Entre em contato** via formulário para dúvidas e sugestões
+2. **Crie uma conta** ou faça login para acessar recursos personalizados
+3. **Clique** em "Explorar" para começar pelo Mercúrio
+4. **Use** os controles para interagir com os modelos 3D
+5. **Navegue** entre planetas usando as setas
+6. **Leia** as informações científicas de cada planeta
+7. **Teste** seus conhecimentos no Quiz dos Planetas
+8. **Entre em contato** via formulário para dúvidas e sugestões
 
 ### 🧠 Quiz dos Planetas
 
@@ -93,6 +96,7 @@
 - **Sistema de pontuação** com classificações
 - **Feedback imediato** para cada resposta
 - **Resultados detalhados** ao final
+- **🏆 Ranking dos Exploradores** com pódio e lista de melhores jogadores
 
 ## 📧 Sistema de Contato
 
@@ -139,6 +143,68 @@ A seção **Dev's** apresenta a equipe responsável pela criação do StarTech e
 - **👩‍🏫 Educadores** buscando recursos interativos
 - **🔭 Entusiastas** da astronomia
 - **👨‍👩‍👧‍👦 Famílias** interessadas em aprender sobre o espaço
+
+## 🔐 Sistema de Autenticação
+
+O StarTech conta com um sistema simples e elegante de autenticação com design moderno.
+
+### ✨ Características:
+
+#### 🔓 Tela de Login
+- **📧 Email** - Campo com validação
+- **🔒 Senha** - Toggle para mostrar/ocultar
+- **🎨 Design espacial** consistente com o tema
+
+#### 📝 Tela de Cadastro
+- **👤 Nome completo**
+- **📧 Email** com validação
+- **🔒 Senha** com toggle de visibilidade
+
+#### 🎨 Design
+- **🌌 Fundo estrelado animado**
+- **💜 Paleta roxa** (#8b5cf6, #a855f7)
+- **✨ Animações suaves**
+- **🔔 Mensagens de feedback** animadas
+- **📱 Totalmente responsivo**
+
+#### 🚀 Funcionalidades
+- ✅ Validação de email
+- 👁️ Toggle mostrar/ocultar senha
+- 🔗 Navegação entre telas
+- 🏠 Botão voltar
+
+### 🎯 Acesso
+- **Botões no header** da página principal (desktop)
+- **Menu lateral** com botões de login e cadastro (mobile)
+- **Links alternativos** em cada tela para navegação rápida
+
+## 🏆 Sistema de Ranking
+
+O Quiz dos Planetas conta com um sistema de ranking simples e elegante para destacar os melhores exploradores do universo.
+
+### ✨ Características:
+
+- **📊 Lista de Ranking** - Todos os jogadores em ordem de pontuação
+  - Design limpo e organizado
+  - Hover interativo em cada item
+  - Avatares e pontuações visíveis
+  - Numeração clara das posições
+
+- **🎨 Design Espacial**
+  - Ícone de raio com animação pulse
+  - Paleta roxa consistente com o tema
+  - Totalmente responsivo
+  - Animações suaves
+
+- **👤 Placeholders**
+  - Nomes
+  - Sistema de pontuação (pts)
+  - Avatares com ícones SVG
+
+### 🎮 Acesso ao Ranking
+- Botão "Ranking" ao lado de "Iniciar Quiz"
+- Ícone de raio para identificação rápida
+- Navegação fluida entre quiz e ranking
 
 ## 📈 Performance
 

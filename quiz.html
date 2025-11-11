@@ -28,6 +28,11 @@
                 <li><a href="index.html#contato">Contato</a></li>
             </ul>
 
+            <div class="botoes-autenticacao">
+                <a href="login.html" class="botao-login">Entrar</a>
+                <a href="cadastro.html" class="botao-cadastro">Cadastrar</a>
+            </div>
+
             
             <button class="botao-hamburger" id="botaoHamburger">
                 <span class="linha-hamburger"></span>
@@ -59,6 +64,10 @@
             <li><a href="index.html#desenvolvedores">Dev's</a></li>
             <li><a href="index.html#contato">Contato</a></li>
         </ul>
+        <div class="botoes-autenticacao-lateral">
+            <a href="login.html" class="botao-login-lateral">Entrar</a>
+            <a href="cadastro.html" class="botao-cadastro-lateral">Cadastrar</a>
+        </div>
     </nav>
 
     
@@ -109,9 +118,17 @@
                 </ul>
             </div>
 
-            <button class="botao-iniciar-quiz" onclick="iniciarQuiz()">
-                INICIAR QUIZ
-            </button>
+            <div class="botoes-quiz-intro">
+                <button class="botao-iniciar-quiz" onclick="iniciarQuiz()">
+                    INICIAR QUIZ
+                </button>
+                <button class="botao-ranking" onclick="window.location.href='ranking.html'">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    RANKING
+                </button>
+            </div>
         </div>
     </div>
 

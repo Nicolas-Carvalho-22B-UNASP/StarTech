@@ -16,6 +16,7 @@
     align-items: center;
     gap: 2.5rem;
     margin-bottom: 3.75rem;
+    position: relative;
 }
 
 .voltar-inicio {
@@ -168,7 +169,15 @@
     font-weight: bold;
 }
 
-.botao-iniciar-quiz {
+.botoes-quiz-intro {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botao-iniciar-quiz,
+.botao-ranking {
     background: linear-gradient(45deg, #7c3aed, #8b5cf6);
     color: white;
     border: none;
@@ -180,11 +189,25 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.0625rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.botao-iniciar-quiz:hover {
+.botao-iniciar-quiz:hover,
+.botao-ranking:hover {
     transform: translateY(-0.125rem);
     box-shadow: 0 0.625rem 1.5625rem rgba(139, 92, 246, 0.4);
+}
+
+.botao-ranking {
+    background: transparent;
+    border: 0.125rem solid #a855f7;
+    color: #a855f7;
+}
+
+.botao-ranking:hover {
+    background: rgba(168, 85, 247, 0.15);
 }
 
 
