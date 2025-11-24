@@ -43,6 +43,7 @@
 
 ## 🛠️ Tecnologias Utilizadas
 
+### Frontend
 - **HTML5** - Estrutura semântica
 - **CSS3** - Estilos modernos e responsivos com animações
 - **JavaScript ES6+** - Interatividade, lógica e carrossel dos dev's
@@ -52,6 +53,14 @@
 - **CSS Transforms** - Animações fluidas do carrossel
 - **Touch Events** - Suporte a gestos mobile
 - **LocalStorage** - Armazenamento local para persistência de dados
+
+### Backend
+- **Node.js** - Ambiente de execução JavaScript
+- **Express.js** - Framework web para Node.js
+- **MySQL** - Sistema de gerenciamento de banco de dados
+- **MySQL2** - Driver MySQL para Node.js
+- **CORS** - Middleware para habilitar CORS
+- **dotenv** - Gerenciamento de variáveis de ambiente
 
 ## 🎮 Controles Interativos
 
@@ -144,9 +153,9 @@ A seção **Dev's** apresenta a equipe responsável pela criação do StarTech e
 - **🔭 Entusiastas** da astronomia
 - **👨‍👩‍👧‍👦 Famílias** interessadas em aprender sobre o espaço
 
-## 🔐 Sistema de Autenticação
+## 🔐 Sistema de Autenticação Completo
 
-O StarTech conta com um sistema simples e elegante de autenticação com design moderno.
+O StarTech conta com um **sistema completo de autenticação** com backend Node.js, banco de dados MySQL e persistência de login.
 
 ### ✨ Características:
 
@@ -154,11 +163,19 @@ O StarTech conta com um sistema simples e elegante de autenticação com design 
 - **📧 Email** - Campo com validação
 - **🔒 Senha** - Toggle para mostrar/ocultar
 - **🎨 Design espacial** consistente com o tema
+- **💾 Persistência** - Usuário permanece logado (localStorage)
 
 #### 📝 Tela de Cadastro
 - **👤 Nome completo**
-- **📧 Email** com validação
+- **📧 Email** com validação (único)
 - **🔒 Senha** com toggle de visibilidade
+- **🏷️ Apelido** gerado automaticamente
+
+#### 👤 Badge de Usuário Logado
+- **🎯 Exibição do nome** no menu superior
+- **🎨 Design elegante** com ícone circular
+- **📱 Responsivo** (desktop e mobile)
+- **🔄 Substitui botões** de login quando logado
 
 #### 🎨 Design
 - **🌌 Fundo estrelado animado**
@@ -168,7 +185,12 @@ O StarTech conta com um sistema simples e elegante de autenticação com design 
 - **📱 Totalmente responsivo**
 
 #### 🚀 Funcionalidades
-- ✅ Validação de email
+- ✅ Cadastro de usuários
+- ✅ Login com validação
+- ✅ Persistência com localStorage
+- ✅ Badge de usuário logado
+- ✅ Integração com MySQL
+- ✅ API REST completa
 - 👁️ Toggle mostrar/ocultar senha
 - 🔗 Navegação entre telas
 - 🏠 Botão voltar
@@ -177,6 +199,69 @@ O StarTech conta com um sistema simples e elegante de autenticação com design 
 - **Botões no header** da página principal (desktop)
 - **Menu lateral** com botões de login e cadastro (mobile)
 - **Links alternativos** em cada tela para navegação rápida
+- **Badge de usuário** aparece automaticamente quando logado
+
+### 🛠️ Backend & Banco de Dados
+
+#### 🖥️ Servidor Node.js
+- **Express.js** - Framework web
+- **MySQL2** - Conexão com banco de dados
+- **CORS** - Habilitado para frontend
+- **dotenv** - Variáveis de ambiente
+
+#### 🗄️ Banco de Dados MySQL
+- **Tabela usuarios_startech**
+  - ID (auto increment)
+  - Nome completo
+  - Email (único)
+  - Senha
+  - Apelido
+  - Data de cadastro
+
+#### 🔌 API REST
+- **GET /** - Listar usuários
+- **POST /login** - Autenticar usuário
+- **POST /cadastrar** - Registrar novo usuário
+
+### 📚 Documentação Completa
+
+Para configurar e usar o sistema de autenticação, consulte:
+
+- **[INSTALACAO-RAPIDA.md](INSTALACAO-RAPIDA.md)** - Guia rápido de instalação
+- **[README-BACKEND.md](README-BACKEND.md)** - Documentação completa do backend
+- **[SISTEMA-AUTENTICACAO.md](SISTEMA-AUTENTICACAO.md)** - Visão geral do sistema
+- **[GUIA-VISUAL-BADGE.md](GUIA-VISUAL-BADGE.md)** - Especificações da badge
+- **[COMANDOS-RAPIDOS.md](COMANDOS-RAPIDOS.md)** - Referência de comandos
+- **[INDICE-DOCUMENTACAO.md](INDICE-DOCUMENTACAO.md)** - Índice completo
+
+### ⚡ Instalação Rápida
+
+```bash
+# 1. Instalar dependências
+npm install
+
+# 2. Configurar banco de dados
+mysql -u root -p < database.sql
+
+# 3. Configurar .env com suas credenciais MySQL
+# DB_HOST=localhost
+# DB_USER=root
+# DB_PASSWORD=sua_senha
+# DB_NAME=startech_db
+
+# 4. Testar conexão
+npm test
+
+# 5. Iniciar servidor
+npm start
+```
+
+### 🎓 Tecnologias do Backend
+- **Node.js** v16+
+- **Express.js** 4.18
+- **MySQL** 8.0+
+- **CORS** 2.8
+- **dotenv** 16.3
 
 ## 🏆 Sistema de Ranking
 

@@ -277,15 +277,21 @@ function atualizarProgresso() {
 }
 
 
-function mostrarResultado() {
+async function mostrarResultado() {
 
     document.getElementById('quizGame').style.display = 'none';
     document.getElementById('quizResultado').style.display = 'block';
 
+    const pontuacaoTotal = pontuacao * 10;
 
     document.getElementById('pontuacaoFinal').textContent = `${pontuacao}/10`;
     document.getElementById('acertos').textContent = pontuacao;
 
+    const usuario = localStorage.getItem('usuario');
+    if (usuario) {
+        const usuarioData = JSON.parse(usuario);
+        await salvarPontuacao(usuarioData.id, pontuacaoTotal);
+    }
 
     let descricao = '';
     if (pontuacao >= 9) {
@@ -301,6 +307,23 @@ function mostrarResultado() {
     }
 
     document.getElementById('resultadoDescricao').textContent = descricao;
+}
+
+async function salvarPontuacao(usuarioId, pontuacao) {
+    try {
+        const response = await fetch("http://localhost:3333/salvar-pontuacao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usuarioId, pontuacao })
+        });
+
+        const data = await response.json();
+        console.log(data.message);
+    } catch (error) {
+        console.error("Erro ao salvar pontuação:", error);
+    }
 }
 
 

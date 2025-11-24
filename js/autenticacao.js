@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     criarCampoEstrelado();
     configurarToggleSenha();
     configurarFormularios();
+    criarEstiloNotificacoes();
 });
 
 function criarCampoEstrelado() {
@@ -59,27 +60,166 @@ function configurarToggleSenha() {
     });
 }
 
+function mostrarNotificacao(mensagem, tipo) {
+    const notificacaoExistente = document.querySelector('.notificacao');
+    if (notificacaoExistente) {
+        notificacaoExistente.remove();
+    }
+
+    const notificacao = document.createElement('div');
+    notificacao.className = `notificacao notificacao-${tipo}`;
+    notificacao.textContent = mensagem;
+
+    notificacao.style.cssText = `
+        position: fixed;
+        top: 6.25rem;
+        right: 1.25rem;
+        background: ${tipo === 'sucesso' ? 'linear-gradient(45deg, #10b981, #059669)' : 'linear-gradient(45deg, #ef4444, #dc2626)'};
+        color: white;
+        padding: 0.9375rem 1.25rem;
+        border-radius: 0.625rem;
+        box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.3);
+        z-index: 10000;
+        animation: deslizarEntrada 0.3s ease-out;
+        max-width: 18.75rem;
+        font-weight: 500;
+    `;
+
+    document.body.appendChild(notificacao);
+
+    setTimeout(() => {
+        notificacao.style.animation = 'deslizarSaida 0.3s ease-in';
+        setTimeout(() => {
+            if (notificacao.parentNode) {
+                notificacao.remove();
+            }
+        }, 300);
+    }, 5000);
+}
+
+function criarEstiloNotificacoes() {
+    if (!document.getElementById('estilo-notificacoes')) {
+        const estilo = document.createElement('style');
+        estilo.id = 'estilo-notificacoes';
+        estilo.textContent = `
+            @keyframes deslizarEntrada {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes deslizarSaida {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(estilo);
+    }
+}
+
 function configurarFormularios() {
     const formLogin = document.getElementById('formLogin');
     const formCadastro = document.getElementById('formCadastro');
     
     if (formLogin) {
-        formLogin.addEventListener('submit', function(e) {
+        formLogin.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
+            await realizarLogin();
         });
     }
     
     if (formCadastro) {
-        formCadastro.addEventListener('submit', function(e) {
+        formCadastro.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
+            await realizarCadastro();
         });
+    }
+}
+
+async function realizarLogin() {
+    const email = document.querySelector("#email").value;
+    const senha = document.querySelector("#senha").value;
+
+    const usuario = {
+        email,
+        senha,
+    };
+
+    try {
+        const response = await fetch("http://localhost:3333/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usuario })
+        });
+
+        const data = await response.json();
+
+        if (data.message) {
+            mostrarNotificacao(data.message, 'erro');
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+            return;
+        }
+
+        const { id, nome } = data;
+        localStorage.setItem("usuario", JSON.stringify({ id, nome }));
+        
+        mostrarNotificacao("Login efetuado com sucesso!", 'sucesso');
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 1500);
+    } catch (error) {
+        console.error("Erro ao realizar login:", error);
+        mostrarNotificacao("Erro ao conectar com o servidor. Verifique se o backend está rodando.", 'erro');
+    }
+}
+
+async function realizarCadastro() {
+    const nome = document.querySelector("#nome").value;
+    const email = document.querySelector("#email").value;
+    const senha = document.querySelector("#senha").value;
+
+    const usuario = {
+        nome,
+        email,
+        senha
+    };
+
+    try {
+        const response = await fetch("http://localhost:3333/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ usuario })
+        });
+
+        const data = await response.json();
+        
+        if (response.status === 201) {
+            mostrarNotificacao(data.message, 'sucesso');
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 1500);
+        } else {
+            mostrarNotificacao(data.message, 'erro');
+        }
+    } catch (error) {
+        console.error("Erro ao realizar cadastro:", error);
+        mostrarNotificacao("Erro ao conectar com o servidor. Verifique se o backend está rodando.", 'erro');
     }
 }

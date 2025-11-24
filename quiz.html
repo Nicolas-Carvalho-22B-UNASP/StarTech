@@ -33,6 +33,21 @@
                 <a href="cadastro.html" class="botao-cadastro">Cadastrar</a>
             </div>
 
+            <div class="badge-usuario" id="badgeUsuario" style="display: none;">
+                <div class="icone-usuario">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M20 21C20 17.134 16.418 14 12 14C7.582 14 4 17.134 4 21" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <span class="nome-usuario" id="nomeUsuario"></span>
+                <button class="botao-sair" id="botaoSair" title="Sair">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
             
             <button class="botao-hamburger" id="botaoHamburger">
                 <span class="linha-hamburger"></span>
@@ -67,6 +82,21 @@
         <div class="botoes-autenticacao-lateral">
             <a href="login.html" class="botao-login-lateral">Entrar</a>
             <a href="cadastro.html" class="botao-cadastro-lateral">Cadastrar</a>
+        </div>
+        
+        <div class="badge-usuario-lateral" id="badgeUsuarioLateral" style="display: none;">
+            <div class="icone-usuario">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M20 21C20 17.134 16.418 14 12 14C7.582 14 4 17.134 4 21" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+            <span class="nome-usuario" id="nomeUsuarioLateral"></span>
+            <button class="botao-sair" id="botaoSairLateral" title="Sair">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
@@ -255,6 +285,14 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuario = localStorage.getItem('usuario');
+            if (!usuario) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
     <script src="js/quiz.js"></script>
 </body>
 </html>

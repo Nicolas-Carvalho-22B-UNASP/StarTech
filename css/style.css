@@ -119,6 +119,63 @@ html {
     align-items: center;
 }
 
+.badge-usuario {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    background: rgba(139, 92, 246, 0.15);
+    border: 0.125rem solid #8b5cf6;
+    border-radius: 1.875rem;
+    padding: 0.5rem 1.25rem 0.5rem 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.badge-usuario .icone-usuario {
+    width: 2rem;
+    height: 2rem;
+    background: linear-gradient(45deg, #8b5cf6, #a855f7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-usuario .icone-usuario svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: white;
+}
+
+.badge-usuario .nome-usuario {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.badge-usuario .botao-sair {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.badge-usuario .botao-sair svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.badge-usuario .botao-sair:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
 .botao-login, .botao-cadastro {
     padding: 0.625rem 1.5rem;
     border-radius: 1.5rem;
@@ -1166,6 +1223,62 @@ section h2::after {
     gap: 0.75rem;
     border-top: 0.0625rem solid #3b1e54;
     margin-top: auto;
+}
+
+.badge-usuario-lateral {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(139, 92, 246, 0.15);
+    border: 0.125rem solid #8b5cf6;
+    border-radius: 1.875rem;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    margin: 1rem 1.5rem;
+}
+
+.badge-usuario-lateral .icone-usuario {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(45deg, #8b5cf6, #a855f7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badge-usuario-lateral .icone-usuario svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.badge-usuario-lateral .nome-usuario {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1rem;
+    flex: 1;
+}
+
+.badge-usuario-lateral .botao-sair {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.badge-usuario-lateral .botao-sair svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.badge-usuario-lateral .botao-sair:hover {
+    color: #ef4444;
+    transform: scale(1.1);
 }
 
 .botao-login-lateral, .botao-cadastro-lateral {

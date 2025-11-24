@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    verificarUsuarioLogado();
+
     configurarMenuLateral();
 
     if (typeof emailjs !== 'undefined') {
@@ -593,4 +595,55 @@ function configurarBotoesHero() {
             });
         });
     }
+}
+
+function verificarUsuarioLogado() {
+    const usuarioLogado = localStorage.getItem('usuario');
+    
+    if (usuarioLogado) {
+        const usuario = JSON.parse(usuarioLogado);
+        mostrarBadgeUsuario(usuario);
+    }
+}
+
+function mostrarBadgeUsuario(usuario) {
+    const badgeUsuario = document.getElementById('badgeUsuario');
+    const nomeUsuario = document.getElementById('nomeUsuario');
+    const botoesAutenticacao = document.querySelector('.botoes-autenticacao');
+    
+    const badgeUsuarioLateral = document.getElementById('badgeUsuarioLateral');
+    const nomeUsuarioLateral = document.getElementById('nomeUsuarioLateral');
+    const botoesAutenticacaoLateral = document.querySelector('.botoes-autenticacao-lateral');
+    
+    if (badgeUsuario && nomeUsuario && botoesAutenticacao) {
+        const nomeExibicao = usuario.nome.split(' ')[0];
+        nomeUsuario.textContent = nomeExibicao;
+        badgeUsuario.style.display = 'flex';
+        botoesAutenticacao.style.display = 'none';
+        
+        const botaoSair = document.getElementById('botaoSair');
+        if (botaoSair) {
+            botaoSair.addEventListener('click', realizarLogout);
+        }
+    }
+    
+    if (badgeUsuarioLateral && nomeUsuarioLateral && botoesAutenticacaoLateral) {
+        const nomeExibicao = usuario.nome.split(' ')[0];
+        nomeUsuarioLateral.textContent = nomeExibicao;
+        badgeUsuarioLateral.style.display = 'flex';
+        botoesAutenticacaoLateral.style.display = 'none';
+        
+        const botaoSairLateral = document.getElementById('botaoSairLateral');
+        if (botaoSairLateral) {
+            botaoSairLateral.addEventListener('click', realizarLogout);
+        }
+    }
+}
+
+function realizarLogout() {
+    localStorage.removeItem('usuario');
+    mostrarNotificacao('Você saiu com sucesso!', 'sucesso');
+    setTimeout(() => {
+        window.location.reload();
+    }, 1500);
 }
