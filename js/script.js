@@ -647,3 +647,15 @@ function realizarLogout() {
         window.location.reload();
     }, 1500);
 }
+
+function verificarLoginQuiz() {
+    const usuario = sessionStorage.getItem('usuario');
+    if (!usuario) {
+        mostrarNotificacao('Você precisa estar logado para jogar o quiz!', 'erro');
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 1500);
+    } else {
+        window.location.href = 'quiz.html';
+    }
+}

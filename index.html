@@ -288,7 +288,7 @@
         <div class="container">
             <h2><span class="texto-destaque">Quiz</span></h2>
             <div class="grade-quiz">
-                <div class="card-quiz" onclick="window.location.href='quiz.html'" style="cursor: pointer;">
+                <div class="card-quiz" onclick="verificarLoginQuiz()" style="cursor: pointer;">
                     <div class="icone-quiz">
                         <svg class="icone-quiz" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="3"/>
@@ -297,7 +297,7 @@
                     </div>
                     <h3>Quiz do Sistema Solar</h3>
                     <p>Teste seus conhecimentos sobre planetas, luas e corpos celestes em um quiz interativo e educativo.</p>
-                    <button class="botao-jogar" onclick="window.location.href='quiz.html'">Jogar Agora</button>
+                    <button class="botao-jogar" onclick="event.stopPropagation(); verificarLoginQuiz()">Jogar Agora</button>
                 </div>
             </div>
 

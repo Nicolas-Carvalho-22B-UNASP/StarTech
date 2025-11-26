@@ -161,11 +161,9 @@ function iniciarQuiz() {
     respostaSelecionada = null;
     mostrandoResposta = false;
 
-
     document.getElementById('quizIntro').style.display = 'none';
     document.getElementById('quizGame').style.display = 'block';
     document.getElementById('quizResultado').style.display = 'none';
-
 
     carregarPergunta();
     atualizarProgresso();
@@ -357,8 +355,13 @@ document.addEventListener('keydown', function(event) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-
     document.getElementById('quizIntro').style.display = 'block';
     document.getElementById('quizGame').style.display = 'none';
     document.getElementById('quizResultado').style.display = 'none';
+
+    const iniciarDireto = sessionStorage.getItem('iniciarQuizDireto');
+    if (iniciarDireto === 'true') {
+        sessionStorage.removeItem('iniciarQuizDireto');
+        iniciarQuiz();
+    }
 });

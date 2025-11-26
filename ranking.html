@@ -60,7 +60,7 @@
         </div>
 
         <div class="botao-container">
-            <button class="botao-jogar" onclick="window.location.href='quiz.html'">
+            <button class="botao-jogar" onclick="iniciarQuizDireto()">
                 JOGAR AGORA
             </button>
         </div>
@@ -104,6 +104,11 @@
                 console.error("Erro ao carregar ranking:", error);
                 document.getElementById('listaRanking').innerHTML = '<p style="text-align: center; color: #ef4444; padding: 2rem;">Erro ao carregar ranking. Verifique se o servidor está rodando.</p>';
             }
+        }
+
+        function iniciarQuizDireto() {
+            sessionStorage.setItem('iniciarQuizDireto', 'true');
+            window.location.href = 'quiz.html';
         }
     </script>
 </body>
