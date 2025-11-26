@@ -598,7 +598,7 @@ function configurarBotoesHero() {
 }
 
 function verificarUsuarioLogado() {
-    const usuarioLogado = localStorage.getItem('usuario');
+    const usuarioLogado = sessionStorage.getItem('usuario');
     
     if (usuarioLogado) {
         const usuario = JSON.parse(usuarioLogado);
@@ -641,7 +641,7 @@ function mostrarBadgeUsuario(usuario) {
 }
 
 function realizarLogout() {
-    localStorage.removeItem('usuario');
+    sessionStorage.removeItem('usuario');
     mostrarNotificacao('Você saiu com sucesso!', 'sucesso');
     setTimeout(() => {
         window.location.reload();

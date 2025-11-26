@@ -157,7 +157,7 @@ async function realizarLogin() {
     };
 
     try {
-        const response = await fetch("http://localhost:3333/login", {
+        const response = await fetch("https://backend-startech.vercel.app/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -176,7 +176,7 @@ async function realizarLogin() {
         }
 
         const { id, nome } = data;
-        localStorage.setItem("usuario", JSON.stringify({ id, nome }));
+        sessionStorage.setItem("usuario", JSON.stringify({ id, nome }));
         
         mostrarNotificacao("Login efetuado com sucesso!", 'sucesso');
         setTimeout(() => {
@@ -200,7 +200,7 @@ async function realizarCadastro() {
     };
 
     try {
-        const response = await fetch("http://localhost:3333/cadastrar", {
+        const response = await fetch("https://backend-startech.vercel.app/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

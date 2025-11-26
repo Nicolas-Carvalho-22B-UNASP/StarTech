@@ -287,7 +287,7 @@ async function mostrarResultado() {
     document.getElementById('pontuacaoFinal').textContent = `${pontuacao}/10`;
     document.getElementById('acertos').textContent = pontuacao;
 
-    const usuario = localStorage.getItem('usuario');
+    const usuario = sessionStorage.getItem('usuario');
     if (usuario) {
         const usuarioData = JSON.parse(usuario);
         await salvarPontuacao(usuarioData.id, pontuacaoTotal);
@@ -311,7 +311,7 @@ async function mostrarResultado() {
 
 async function salvarPontuacao(usuarioId, pontuacao) {
     try {
-        const response = await fetch("http://localhost:3333/salvar-pontuacao", {
+        const response = await fetch("https://backend-startech.vercel.app/salvar-pontuacao", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

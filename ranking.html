@@ -75,7 +75,7 @@
 
         async function carregarRanking() {
             try {
-                const response = await fetch("http://localhost:3333/ranking");
+                const response = await fetch("https://backend-startech.vercel.app/ranking");
                 const ranking = await response.json();
 
                 const listaRanking = document.getElementById('listaRanking');
